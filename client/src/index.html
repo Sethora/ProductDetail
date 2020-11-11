@@ -1,11 +1,18 @@
 <!DOCTYPE html>
-<html lang="en" style="height: 100%; width: 100%;">
+<html lang="en">
 
   <head>
     <title><%= htmlWebpackPlugin.options.title %></title>
+    <style type="text/css">
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+      }
+    </style>
   </head>
 
-  <body style="height: 100%; width: 100%;">
+  <body>
     <div id="root"></div>
     <div id="modal-root"></div>
   </body>

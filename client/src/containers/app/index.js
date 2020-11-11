@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { AppStyles } from './AppStyles';
 
 class App extends Component {
   constructor(props) {
@@ -7,7 +8,20 @@ class App extends Component {
 
   render() {
     return (
-      <div>I'm alive</div>
+      <div>
+        <AppStyles>
+          <section id="images"></section>
+          <section id="details">
+            <article id="basket"></article>
+            <article id="shipping">
+              <div id="fifty">
+
+              </div>
+            </article>
+            <article id="tabs"></article>
+          </section>
+        </AppStyles>
+      </div>
     );
   }
 }
