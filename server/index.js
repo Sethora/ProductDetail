@@ -5,6 +5,7 @@ const path = require('path');
 const upload = require('./middleware/UploadFile');
 const cors = require('cors');
 const { saveProduct, getProducts, saveStore, saveBrand } = require('./database');
+// require('./database/SeedingScript');
 
 const app = express();
 const port = 3002;

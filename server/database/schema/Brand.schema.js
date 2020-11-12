@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const brandSchema = mongoose.Schema({
+const brandSchema = new mongoose.Schema({
   code: { type: String, required: true, unique: true, dropDups: true },
   name: { type: String, required: true, unique: true },
   about: { type: String, required: true }
