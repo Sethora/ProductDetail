@@ -1,5 +1,6 @@
 import React, { Component, createRef } from 'react';
 import CarouselStyles from './CarouselStyles';
+import Card from '../card';
 import LeftArrow from '../left-arrow';
 import RightArrow from '../right-arrow';
 
@@ -34,19 +35,17 @@ class Carousel extends Component {
   }
 
 
-
   render() {
     return (
       <CarouselStyles>
         <LeftArrow slide={this.slideLeft.bind(this)} />
-        <div id="two" ref={this.mySlide} onScroll={() => this.onScroll()}>
-          {
-            [1, 2, 3, 4, 56, 7, 8, 9, 10].map((el, index) => {
-              console.log('hey')
-              return <div key={index} className="box"></div>
-            })
-          }
-        </div>
+        <Card
+          reference={this.mySlide}
+          cards={[1, 2, 3, 4, 56, 7, 8, 9, 10]}
+          scroll={this.onScroll.bind(this)}
+          height={100}
+          width={100}
+        />
         <RightArrow slide={this.slideRight.bind(this)} />
       </CarouselStyles>
     );
