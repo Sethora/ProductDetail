@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { AppStyles } from './AppStyles';
+import Preview from '../preview';
 
 class App extends Component {
   constructor(props) {
@@ -10,7 +11,7 @@ class App extends Component {
     return (
       <div>
         <AppStyles>
-          <section id="images"></section>
+          <Preview id="images" />
           <section id="details">
             <article id="basket"></article>
             <article id="shipping">

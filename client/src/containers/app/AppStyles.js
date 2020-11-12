@@ -7,27 +7,24 @@ width: 70%;
 height: 100vh;
 margin: 2% auto;
 
-#images {
-  background-color: green;
-  height: 56vh;
-}
+
 #details {
-  display: flex:
+  display: flex;
   flex-direction: column;
-  background-color: blue;
+  flex: 1;
   min-height: 100%;
   height: 100%;
 }
 #basket {
-  background-color: orange;
+  border: 2px solid orange;
   height: 30%;
 }
 #shipping {
-  background-color: purple;
+  border: 2px solid purple;
   height: 14%;
 }
 #tabs {
-  background-color: red;
+  border: 1px solid red;
   height: 100%;
 }
 #fifty {
