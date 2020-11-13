@@ -4,7 +4,12 @@ import { rightArrow } from '../../../assets/images';
 
 const RightArrow = (props) => {
   return (
-    <RightArrowStyles id="right" onClick={() => props.slide()}>
+    <RightArrowStyles
+      id="right"
+      onClick={() => props.slide()}
+      height={props.height}
+      width={props.width}
+    >
       <img className="icons" src={rightArrow} />
     </RightArrowStyles>
   );

@@ -36,7 +36,11 @@ class Carousel extends Component {
   render() {
     return (
       <CarouselStyles>
-        <LeftArrow slide={this.slideLeft.bind(this)} />
+        <LeftArrow
+          slide={this.slideLeft.bind(this)}
+          height={28}
+          width={28}
+        />
         <Card
           reference={this.mySlide}
           cards={this.props.photos}
@@ -45,7 +49,11 @@ class Carousel extends Component {
           height={70}
           width={70}
         />
-        <RightArrow slide={this.slideRight.bind(this)} />
+        <RightArrow
+          slide={this.slideRight.bind(this)}
+          height={28}
+          width={28}
+        />
       </CarouselStyles>
     );
   }

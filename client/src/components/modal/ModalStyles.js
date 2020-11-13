@@ -32,7 +32,7 @@ const ModalStyles = styled.div`
     .modal-body {
       position: relative;
       width: 90%;
-      height: 65%;
+      height: 70%;
       max-width: 1200px;
       background: white;
       padding: 2rem;

@@ -6,13 +6,14 @@ cursor: pointer;
 justify-content: center;
 align-items: center;
 height: 100%;
-&:hover {
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-}
 .icons {
   cursor: pointer;
-  height: 42px;
-  width: 28px;
+  height: ${props => props.height}px;
+  width: ${props => props.width}px;
+  &:hover {
+    transform: scale(1.5);
+    transition: 0.5s;
+  }
 }
 `;
 
