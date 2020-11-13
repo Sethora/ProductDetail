@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { AppStyles } from './AppStyles';
 import Preview from '../preview';
+import { ModalProvider } from '../../components/modal';
 
 class App extends Component {
   constructor(props) {
@@ -9,7 +10,7 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <ModalProvider>
         <AppStyles>
           <Preview id="images" />
           <section id="details">
@@ -22,7 +23,7 @@ class App extends Component {
             <article id="tabs"></article>
           </section>
         </AppStyles>
-      </div>
+      </ModalProvider>
     );
   }
 }
