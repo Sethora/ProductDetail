@@ -11,8 +11,9 @@ justify-content: center;
   height: 550px;
 }
 .secondaryWrapper {
+  display: flex;
+  align-items: center;
   height: 100px;
-  background-color: red;
 }
 
 .divider {
@@ -25,7 +26,7 @@ justify-content: center;
 
 .image {
   height: 80%;
-  width: 60%;
+  width: 55%;
 }
 .one {
   height: 100%;
