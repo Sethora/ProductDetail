@@ -2,13 +2,15 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const SRC_DIR = path.join(__dirname, './src/index.js');
+const PUBLIC_DIR = path.join(__dirname, '../public');
 
 module.exports = {
   entry: {
-    main: path.resolve(__dirname, './src/index.js'),
+    main: SRC_DIR,
   },
   output: {
-    path: path.resolve(__dirname, '../public'),
+    path: PUBLIC_DIR,
     filename: '[name].bundle.js',
   },
   module: {
