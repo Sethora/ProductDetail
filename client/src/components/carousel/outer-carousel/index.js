@@ -9,9 +9,7 @@ class Carousel extends Component {
     super(props);
 
     this.state = {
-      horizontalPoint: 0,
-      photos: [],
-      length: 5
+      horizontalPoint: 0
     };
     this.mySlide = createRef();
   }
@@ -20,7 +18,6 @@ class Carousel extends Component {
     if (this.state.horizontalPoint < 850) {
       this.setState({ horizontalPoint: this.state.horizontalPoint + 50 }, () => {
         this.mySlide.current.scrollLeft = this.state.horizontalPoint;
-        console.log(this.mySlide)
       });
     }
   }
