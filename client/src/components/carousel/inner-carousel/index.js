@@ -41,6 +41,10 @@ export default function InnerCarousel(props) {
   const onScroll = () => {
     setHorizontalPoint(mySlide.current.scrollLeft);
   };
+  const onClick = (position) => {
+    setSelected(position);
+  };
+
   return {
     children: (
       <InnerCarouselStyles>
@@ -70,6 +74,7 @@ export default function InnerCarousel(props) {
             reference={mySlide}
             cards={photos}
             scroll={onScroll}
+            click={onClick}
             height={80}
             width={74}
           />

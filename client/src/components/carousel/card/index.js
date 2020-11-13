@@ -2,7 +2,6 @@ import React from 'react';
 import CardStyles from './CardStyles';
 
 const Card = (props) => {
-  console.log(props)
   return (
     <CardStyles
       width={props.width}
