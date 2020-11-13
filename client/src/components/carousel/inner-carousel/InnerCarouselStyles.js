@@ -2,10 +2,29 @@ import styled from 'styled-components';
 
 const InnerCarouselStyles = styled.div`
 display: flex;
+flex-direction: column;
 justify-content: center;
-height: 550px;
+
+.mainWrapper {
+  display: flex;
+  justify-content: center;
+  height: 550px;
+}
+.secondaryWrapper {
+  height: 100px;
+  background-color: red;
+}
+
+.divider {
+  width: 100%;
+  margin: 1% 0;
+  background-color: gray;
+  opacity: 0.2;
+  height: 0.2px;
+}
+
 .image {
-  flex: 1;
+  height: 80%;
   width: 60%;
 }
 .one {

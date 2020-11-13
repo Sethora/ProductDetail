@@ -2,19 +2,29 @@ import React, { useState } from 'react';
 import InnerCarouselStyles from './InnerCarouselStyles';
 import LeftArrow from '../left-arrow';
 import RightArrow from '../right-arrow';
-import { pic4 } from '../../../assets/images';
+import { pic4, pic2 } from '../../../assets/images';
 
 export default function InnerCarousel(props) {
   return {
     children: (
       <InnerCarouselStyles>
-        <div className='one'>
-          <LeftArrow />
+        <div class="mainWrapper">
+          <div className='one'>
+            <LeftArrow
+              height={44}
+              width={34}
+            />
+          </div>
+          <img className="image" src={pic2} />
+          <div className='two'>
+            <RightArrow
+              height={48}
+              width={32}
+            />
+          </div>
         </div>
-        <img className="image" src={pic4} />
-        <div className='two'>
-          <RightArrow />
-        </div>
+        <div className="divider"></div>
+        <div className="secondaryWrapper"></div>
       </InnerCarouselStyles>
     )
   };
