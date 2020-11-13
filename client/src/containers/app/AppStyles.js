@@ -9,7 +9,6 @@ margin: 2% auto;
 body {
   overflow: hidden;
 }
-
 #details {
   display: flex;
   flex-direction: column;

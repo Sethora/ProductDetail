@@ -3,6 +3,7 @@ import PreviewStyles from './PreviewStyles';
 import Carousel from '../../components/carousel/outer-carousel';
 import { pic1, pic2, pic3, pic4 } from '../../assets/images';
 import ModalExample from './ModalExample';
+import InnerCarousel from '../../components/carousel/inner-carousel';
 import { useModalContext } from '../../components/modal';
 
 
@@ -48,7 +49,7 @@ const AppInner = () => {
     <div className="App">
       <button
         className="btn-primary"
-        onClick={() => openModal(ModalExample)}
+        onClick={() => openModal(InnerCarousel)}
       >Open Modal</button>
     </div>
   );

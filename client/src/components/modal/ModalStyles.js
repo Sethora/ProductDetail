@@ -15,7 +15,7 @@ const ModalStyles = styled.div`
     display: ${(props) => props.open ? 'block' : 'none'};
     .modal-exit {
       position: absolute;
-      right; 1rem;
+      right: 1rem;
       top: 1rem;
       width: 10px;
       height: 10px;
@@ -32,7 +32,8 @@ const ModalStyles = styled.div`
     .modal-body {
       position: relative;
       width: 90%;
-      max-width: 600px;
+      height: 65%;
+      max-width: 1200px;
       background: white;
       padding: 2rem;
       margin: 0 auto;
