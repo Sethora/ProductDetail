@@ -4,7 +4,7 @@ const fs = require('fs');
 const path = require('path');
 const upload = require('./middleware/UploadFile');
 const cors = require('cors');
-const { saveProduct, getProducts, saveStore, saveBrand } = require('./database');
+const { getInstance, saveProduct, getProducts, saveStore, saveBrand } = require('./database');
 // require('./database/SeedingScript');
 
 const app = express();
@@ -15,6 +15,7 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(__dirname + '../public'));
+getInstance();
 
 
 app.post('/store/create', (req, res, next) => {
