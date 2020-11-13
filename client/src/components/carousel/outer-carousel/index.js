@@ -10,6 +10,7 @@ class Carousel extends Component {
 
     this.state = {
       horizontalPoint: 0,
+      photos: [],
       length: 5
     };
     this.mySlide = createRef();
@@ -41,10 +42,11 @@ class Carousel extends Component {
         <LeftArrow slide={this.slideLeft.bind(this)} />
         <Card
           reference={this.mySlide}
-          cards={[1, 2, 3, 4, 56, 7, 8, 9, 10]}
+          cards={this.props.photos}
           scroll={this.onScroll.bind(this)}
-          height={100}
-          width={100}
+          click={this.props.click}
+          height={70}
+          width={70}
         />
         <RightArrow slide={this.slideRight.bind(this)} />
       </CarouselStyles>

@@ -9,8 +9,9 @@ const PreviewStyles = styled.div`
   width: 95%;
   padding: 2%;
   .img {
-    height: 32%;
+    height: 48%;
     width: 92%;
+    border-radius: 6px;
     margin-bottom: 8%;
   }
 `;
