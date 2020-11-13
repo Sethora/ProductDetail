@@ -1,6 +1,9 @@
 
 const faker = require('faker');
+const random = require('./PhotosUrl');
 const {
+  getInstance,
+  shutDownInstance,
   saveProduct,
   saveStore,
   saveBrand
@@ -12,7 +15,6 @@ const getRandomStore = () => {
     name: `store-${faker.address.streetName()}`,
     location: faker.address.streetAddress()
   }
-  console.log(store)
   return store;
 };
 
@@ -22,7 +24,6 @@ const getRandomBrand = () => {
     name: faker.company.companyName(),
     about: faker.company.catchPhrase()
   };
-  console.log(brand)
   return brand;
 };
 
@@ -40,22 +41,23 @@ const getRandomProduct = ({ store_code, brand_code }) => {
       ingredients: faker.lorem.words()
     },
     price: Number.parseFloat(faker.commerce.price()),
-    images: [1, 2, 3, 4, 5].map(el => faker.image.image())
+    images: random.getFive()
   };
-  console.log(product)
   return product;
 };
 
-const insertRandom = () => {
+const insertRandom = async () => {
   for (const el of Array(100).keys()) {
     const store = getRandomStore();
     const brand = getRandomBrand();
-    saveStore(store)
+    await saveStore(store)
       .then(result => saveBrand(brand))
       .then(result => saveProduct(getRandomProduct({ store_code: store.code, brand_code: brand.code })))
       .then(result => console.log(result))
       .catch(e => console.log(e));
   }
+  shutDownInstance()
 };
 
+getInstance();
 insertRandom();
