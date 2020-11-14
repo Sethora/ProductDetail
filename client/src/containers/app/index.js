@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { AppStyles } from './AppStyles';
 import Preview from '../preview';
 import Basket from '../basket';
+import Shipping from '../../components/shipping';
 import { ModalProvider } from '../../components/modal';
 
 class App extends Component {
@@ -16,11 +17,7 @@ class App extends Component {
           <Preview id="images" />
           <section id="details">
             <Basket />
-            <article id="shipping">
-              <div id="fifty">
-
-              </div>
-            </article>
+            <Shipping />
             <article id="tabs"></article>
           </section>
         </AppStyles>

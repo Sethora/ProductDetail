@@ -3,12 +3,13 @@ import styled from 'styled-components';
 const BasketStyles = styled.div`
 display: flex;
 border: 2px solid orange;
-height: 30%;
+height: 24%;
+select {
+  height: 22%;
+  padding: 1%;
+}
 .one {
   flex: 1.4;
-}
-.subOne {
-
 }
 .subTwo {
   display: flex;
@@ -54,11 +55,11 @@ height: 30%;
   display: flex;
   justify-content: space-between;
   .button {
+    width: 22vh;
+    height: 28%;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 35vh;
-    height: 40%;
     font-weight: 800;
     border-radius: 30px;
     border: 1px solid black;
@@ -78,10 +79,6 @@ height: 30%;
     width: 24px;
     padding-right: 4%;
   }
-}
-select {
-  height: 40%;
-  padding: 3%;
 }
 `;
 

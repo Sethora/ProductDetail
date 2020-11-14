@@ -7,3 +7,5 @@ export const leftArrow = require('./leftArrow.png');
 export const star = require('./star.png');
 export const heart = require('./heart.png');
 export const empty = require('./emptyheart.png');
+export const truck = require('./truck.png');
+export const pickup = require('./pickup.png');
