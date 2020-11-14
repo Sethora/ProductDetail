@@ -3,6 +3,7 @@ import { AppStyles } from './AppStyles';
 import Preview from '../preview';
 import Basket from '../basket';
 import Shipping from '../../components/shipping';
+import Tabs from '../../components/tabs';
 import { ModalProvider } from '../../components/modal';
 
 class App extends Component {
@@ -18,7 +19,7 @@ class App extends Component {
           <section id="details">
             <Basket />
             <Shipping />
-            <article id="tabs"></article>
+            <Tabs />
           </section>
         </AppStyles>
       </ModalProvider>
