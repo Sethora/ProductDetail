@@ -32,7 +32,6 @@ class Preview extends Component {
           photos={photos}
           click={this.imagePreviewHandler.bind(this)}
         />
-
       </PreviewStyles>
     );
   }

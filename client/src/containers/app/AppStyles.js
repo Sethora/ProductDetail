@@ -16,10 +16,6 @@ body {
   min-height: 100%;
   height: 100%;
 }
-#basket {
-  border: 2px solid orange;
-  height: 30%;
-}
 #shipping {
   border: 2px solid purple;
   height: 14%;
@@ -30,5 +26,8 @@ body {
 }
 #fifty {
   height: 100%;
+}
+p {
+  margin: 0;
 }
 `;
