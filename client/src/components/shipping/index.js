@@ -9,8 +9,8 @@ const Shipping = (props) => {
         <div className="sub">
           <input className="radio" type="radio" />
           <strong>Get it Shipped</strong>
-          You're only $50.00 away from Free Shipping.
-        <a href='#'>Shipping and Returns</a>
+          <p className="shipping-info">You're only $50.00 away from Free Shipping.</p>
+          <a href='#'>Shipping and Returns</a>
         </div>
         <div>
           <img className="icons" src={truck} />
@@ -21,7 +21,7 @@ const Shipping = (props) => {
         <div className="sub">
           <input className="radio" type="radio" />
           <strong>Reserver & Pick Up</strong>
-        Select to see availability at <strong>Reston</strong>
+          <p className="shipping-info">Select to see availability at <strong>Reston</strong></p>
         </div>
         <div>
           <img className="icons" src={pickup} />

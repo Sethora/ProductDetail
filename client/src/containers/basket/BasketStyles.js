@@ -2,14 +2,48 @@ import styled from 'styled-components';
 
 const BasketStyles = styled.div`
 display: flex;
-border: 2px solid orange;
 height: 24%;
 select {
   height: 22%;
   padding: 1%;
 }
+.product-title {
+  margin-top: 1%;
+  font-family: RobotoRegular;
+}
+.product {
+  font-family: RobotoBold;
+}
+.interest {
+  margin-top: 6%;
+  margin-bottom: 4.6%;
+  font-size: 0.8rem;
+  color: #989898;
+  font-family: RobotoRegular;
+}
+.limited {
+  margin-top: 4%;
+  font-family: RobotoMedium;
+}
+.button-txt {
+  letter-spacing: 1px;
+  font-family: RobotoMedium;
+}
 .one {
   flex: 1.4;
+  .subOne {
+
+    .item-number {
+      margin-top: 3%;
+      margin-bottom: 3.2%;
+      color: #989898;
+      font-family: RobotoThin;
+      font-size: 0.7rem;
+    }
+  }
+  .ranking {
+    font-family: RobotoMedium;
+  }
 }
 .subTwo {
   display: flex;

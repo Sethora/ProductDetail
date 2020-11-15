@@ -6,8 +6,9 @@ padding 0 2%;
 flex-direction: column;
 background-color: #ECECEC;
 a {
-  color: #0e489d;
+  color: #1D7CF2;
   margin-left: 2%;
+  font-family: RobotoRegular;
   text-decoration: none;
 }
 .radio {
@@ -30,6 +31,10 @@ a {
   display: flex;
   justify-content: space-around;
   align-items: center;
+}
+.shipping-info {
+  margin-left: 2%;
+  font-family: RobotoRegular;
 }
 #divider {
   height: 1px;
