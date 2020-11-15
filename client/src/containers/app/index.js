@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
 import { AppStyles } from './AppStyles';
 import Preview from '../preview';
+import Basket from '../basket';
+import Shipping from '../../components/shipping';
+import Tabs from '../../components/tabs';
 import { ModalProvider } from '../../components/modal';
+import GlobalFonts from '../../assets/fonts/fonts';
 
 class App extends Component {
   constructor(props) {
@@ -11,16 +15,13 @@ class App extends Component {
   render() {
     return (
       <ModalProvider>
+        <GlobalFonts />
         <AppStyles>
           <Preview id="images" />
           <section id="details">
-            <article id="basket"></article>
-            <article id="shipping">
-              <div id="fifty">
-
-              </div>
-            </article>
-            <article id="tabs"></article>
+            <Basket />
+            <Shipping />
+            <Tabs />
           </section>
         </AppStyles>
       </ModalProvider>
