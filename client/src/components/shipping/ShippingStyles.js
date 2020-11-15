@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const ShippingStyles = styled.div`
 display: flex;
-padding 0 2%;
+padding 1% 2%;
 flex-direction: column;
 background-color: #ECECEC;
 a {

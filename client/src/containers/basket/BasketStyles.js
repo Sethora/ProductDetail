@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const BasketStyles = styled.div`
 display: flex;
-height: 24%;
+height: 16%;
 select {
   height: 22%;
   padding: 1%;
@@ -90,7 +90,7 @@ select {
   justify-content: space-between;
   .button {
     width: 20vh;
-    height: 20%;
+    height: 28%;
     display: flex;
     align-items: center;
     justify-content: center;
