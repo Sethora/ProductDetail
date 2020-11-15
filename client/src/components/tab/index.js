@@ -3,15 +3,16 @@ import TabStyles from './TabStyles';
 
 const Tab = (props) => {
   const { selected, value, click } = props;
-  console.log(selected)
-  console.log(value)
+  const clicked = selected === value;
   return (
     <TabStyles
       onClick={() => click(value)}
+      position={props.position}
     >
-      <div className={(selected === value) ? 'clicked' : 'outer'}>
-        How To use
+      <div className={clicked ? 'clicked' : 'outer'}>
+        {props.value}
       </div>
+      {(clicked) ? <div className="divider"></div> : null}
     </TabStyles>
   );
 };

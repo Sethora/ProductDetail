@@ -17,7 +17,6 @@ body {
   height: 100%;
 }
 #tabs {
-  border: 1px solid red;
   height: 100%;
 }
 p {

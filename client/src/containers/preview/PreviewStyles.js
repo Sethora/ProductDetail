@@ -4,7 +4,6 @@ const PreviewStyles = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 2px solid green;
   max-width: 95%;
   width: 95%;
   padding: 2%;

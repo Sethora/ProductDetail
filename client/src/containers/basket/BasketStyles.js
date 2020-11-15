@@ -55,8 +55,8 @@ select {
   display: flex;
   justify-content: space-between;
   .button {
-    width: 22vh;
-    height: 28%;
+    width: 20vh;
+    height: 20%;
     display: flex;
     align-items: center;
     justify-content: center;
