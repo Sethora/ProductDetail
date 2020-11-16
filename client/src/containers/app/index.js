@@ -15,7 +15,8 @@ class App extends Component {
     this.state = {
       store: {},
       brand: {},
-      product: {}
+      product: {},
+      tabs: []
     };
   }
 
@@ -24,10 +25,21 @@ class App extends Component {
       .then(result => {
         if (result.product) {
           const { store, brand, product } = result;
-          this.setState({ store, brand, product });
+          this.setState({ store, brand, product }, () => this.getTabs());
         }
       })
       .catch(error => console.log(error));
+  }
+
+  getTabs() {
+    const tabs = [];
+    const { details, instructions, ingredients } = this.state.product;
+    tabs.push(details);
+    tabs.push(instructions);
+    tabs.push(ingredients);
+    tabs.push(this.state.brand);
+    tabs.push(this.state.store);
+    this.setState({ tabs });
   }
 
   render() {
@@ -42,7 +54,7 @@ class App extends Component {
               product={this.state.product}
             />
             <Shipping />
-            <Tabs />
+            <Tabs tabs={this.state.tabs} />
           </section>
         </AppStyles>
       </ModalProvider>

@@ -102,7 +102,6 @@ app.get('/product/get', (req, res, next) => {
         brand: result[1],
         product: result[2]
       };
-      console.log(data)
       res.status(200).end(JSON.stringify(data));
     })
     .catch(error => {

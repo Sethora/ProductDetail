@@ -21,7 +21,7 @@ const saveProduct = (product) => {
 };
 
 const getProducts = () => {
-  return Promise.resolve(ProductModel.find({}, { _id: 0 }))
+  return Promise.resolve(ProductModel.find({}, { _id: 0, __v: 0 }))
     .then(result => result)
     .catch(error => error);
 };
@@ -33,7 +33,7 @@ const saveStore = (store) => {
 };
 
 const getStore = (code) => {
-  return Promise.resolve(StoreModel.findOne({ code }, { _id: 0 }))
+  return Promise.resolve(StoreModel.findOne({ code }, { _id: 0, __v: 0 }))
     .then(result => result)
     .catch(error => error);
 };
@@ -45,7 +45,7 @@ const saveBrand = (brand) => {
 };
 
 const getBrand = (code) => {
-  return Promise.resolve(BrandModel.findOne({ code }, { _id: 0 }))
+  return Promise.resolve(BrandModel.findOne({ code }, { _id: 0, __v: 0 }))
     .then(result => result)
     .catch(error => error);
 }

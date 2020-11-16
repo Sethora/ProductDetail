@@ -5,7 +5,16 @@ import Detail from '../detail';
 const Section = (props) => {
   return (
     <SectionStyles>
-      {[1, 2, 3, 4, 5, 6, 7, 8].map((pos, index) => <Detail key={`indexing-${pos}`} />)}
+      {
+        (props.section instanceof Object) ? Object.entries(props.section).map(([key, value], index) => <Detail
+          key={`indexing-${index}`}
+          title={`${key}:`}
+          text={value}
+        />) : <Detail
+            title={''}
+            text={props.section}
+          />
+      }
     </SectionStyles>
   );
 };
