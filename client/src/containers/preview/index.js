@@ -10,10 +10,16 @@ class Preview extends Component {
     super(props);
 
     this.state = {
-      photos: [pic1, pic2, pic3, pic4],
+      photos: [],
       indexSelected: 0
     };
 
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.product.images !== undefined && (this.state.photos.length !== this.props.product.images.length)) {
+      this.setState({ photos: this.props.product.images });
+    }
   }
 
   imagePreviewHandler(indexSelected) {
@@ -25,6 +31,7 @@ class Preview extends Component {
     return (
       <PreviewStyles>
         <ImgInner
+          photos={photos}
           preview={photos[indexSelected]}
           selected={indexSelected}
         />
@@ -39,6 +46,8 @@ class Preview extends Component {
 
 const ImgInner = (props) => {
   const { openModal } = useModalContext();
+  InnerCarousel.photos = props.photos;
+  InnerCarousel.selected = props.selected;
   return (
     <img
       className="img"

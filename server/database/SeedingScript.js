@@ -15,7 +15,7 @@ const getRandomStore = () => {
     name: `store-${faker.address.streetName()}`,
     location: faker.address.streetAddress(),
     policies: {
-      returns: 'If you are not completely satisfied with an online purchase or gift, you may return your U.S.or Canadian purchase in stores or by mail. Restrictions apply for returns made outside the U.S.'
+      returns: 'If you are not completely satisfied with an online purchase or gift, you may return your U.S. or Canadian purchase in stores or by mail. Restrictions apply for returns made outside the U.S.'
     }
   }
   return store;

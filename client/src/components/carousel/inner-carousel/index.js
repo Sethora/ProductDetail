@@ -6,9 +6,9 @@ import Card from '../card';
 import { pic1, pic2, pic3, pic4 } from '../../../assets/images';
 
 export default function InnerCarousel(props) {
-  const [selected, setSelected] = useState(0);
+  const [selected, setSelected] = useState(InnerCarousel.selected);
   const [horizontalPoint, setHorizontalPoint] = useState(0);
-  const [photos, setPhotos] = useState([pic1, pic2, pic3, pic4]);
+  const [photos, setPhotos] = useState(InnerCarousel.photos);
   const mySlide = createRef();
 
   const changePicture = () => {

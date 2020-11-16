@@ -15,7 +15,6 @@ width: 100%;
   border-radius: 12px;
   margin: auto 5%;
   display: inline-block;
-  background-color: blue;
   box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px;
   transition: all .3s ease-in-out;
   &:hover {

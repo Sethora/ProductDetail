@@ -4,7 +4,15 @@ const fs = require('fs');
 const path = require('path');
 const upload = require('./middleware/UploadFile');
 const cors = require('cors');
-const { getInstance, saveProduct, getProducts, saveStore, saveBrand } = require('./database');
+const {
+  getInstance,
+  saveProduct,
+  getProducts,
+  saveStore,
+  getStore,
+  saveBrand,
+  getBrand
+} = require('./database');
 
 const app = express();
 const port = 3002;
@@ -78,14 +86,29 @@ app.post('/product/create', upload, (req, res, next) => {
 });
 
 app.get('/product/get', (req, res, next) => {
-  getProducts((err, records) => {
-    if (err) {
-      res.status(404).end();
-    } else {
-      console.log(records);
-      res.status(200).end(JSON.stringify(records));
-    }
-  });
+  let product;
+  getProducts()
+    .then(products => {
+      const random = Math.floor(Math.random() * 100);
+      return products[random];
+    })
+    .then(product => {
+      product = product;
+      return Promise.all([getStore(product.store_code), getBrand(product.brand_code), product]);
+    })
+    .then(result => {
+      const data = {
+        store: result[0],
+        brand: result[1],
+        product: result[2]
+      };
+      console.log(data)
+      res.status(200).end(JSON.stringify(data));
+    })
+    .catch(error => {
+      console.log(error);
+      res.status(500).send();
+    });
 });
 
 app.listen(port, (req, res, next) => {
