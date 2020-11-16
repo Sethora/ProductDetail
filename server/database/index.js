@@ -20,18 +20,20 @@ const saveProduct = (product) => {
     .catch(error => error);
 };
 
-const getProducts = (cb) => {
-  ProductModel.find({}, (err, items) => {
-    if (err) {
-      cb(err, null);
-    } else {
-      cb(null, items);
-    }
-  });
+const getProducts = () => {
+  return Promise.resolve(ProductModel.find({}, { _id: 0, __v: 0 }))
+    .then(result => result)
+    .catch(error => error);
 };
 
 const saveStore = (store) => {
   return Promise.resolve(StoreModel.create(store))
+    .then(result => result)
+    .catch(error => error);
+};
+
+const getStore = (code) => {
+  return Promise.resolve(StoreModel.findOne({ code }, { _id: 0, __v: 0 }))
     .then(result => result)
     .catch(error => error);
 };
@@ -42,12 +44,20 @@ const saveBrand = (brand) => {
     .catch(error => error);
 };
 
+const getBrand = (code) => {
+  return Promise.resolve(BrandModel.findOne({ code }, { _id: 0, __v: 0 }))
+    .then(result => result)
+    .catch(error => error);
+}
+
 module.exports = {
   getInstance,
   shutDownInstance,
   saveProduct,
   getProducts,
   saveStore,
-  saveBrand
+  getStore,
+  saveBrand,
+  getBrand
 };
 

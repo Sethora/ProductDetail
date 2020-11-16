@@ -6,6 +6,8 @@ const productSchema = new mongoose.Schema({
   brand_code: { type: String, required: true },
   name: { type: String, required: true },
   details: { type: Object, required: true },
+  instructions: { type: Object, required: true },
+  ingredients: { type: String, required: true },
   price: { type: Number, required: true },
   images: { type: Array, required: true }
 });

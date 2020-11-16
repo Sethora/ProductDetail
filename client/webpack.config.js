@@ -1,14 +1,13 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const SRC_DIR = path.join(__dirname, './src/index.js');
 const PUBLIC_DIR = path.join(__dirname, '../public');
 
 module.exports = {
-  entry: {
-    main: SRC_DIR,
-  },
+  entry: ['@babel/polyfill', SRC_DIR],
   output: {
     path: PUBLIC_DIR,
     filename: '[name].bundle.js',
@@ -50,6 +49,7 @@ module.exports = {
       filename: 'index.html'
     }),
     new CleanWebpackPlugin(),
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
+    new Dotenv()
   ]
 };
