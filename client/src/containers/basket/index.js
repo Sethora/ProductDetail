@@ -8,14 +8,21 @@ class Basket extends Component {
   }
 
   render() {
+    const {
+      name = '',
+      price = 0,
+      code = '',
+      reviews = '93',
+      loves = '9.2K'
+    } = this.props.product;
     return (
       <BasketStyles>
         <div className="one">
           <div className="subOne">
-            <label className="product">amika</label>
+            <label className="product">{this.props.brand_name}</label>
             <div className="product-title">
-              <p>New York Minute Hair Blow Dryer Brush Set</p>
-              <p className="item-number">ITEM 2390243</p>
+              <p>{name}</p>
+              <p className="item-number">ITEM {code}</p>
             </div>
           </div>
           <div className="subTwo">
@@ -23,18 +30,18 @@ class Basket extends Component {
               {
                 [1, 2, 3, 4, 5].map((el, index) => <img className="star" key={`index-${index}`} src={star} />)
               }
-              <span className="fontOne ranking">93 reviews</span>
+              <span className="fontOne ranking">{reviews} reviews</span>
             </div>
             |
             <div className="flowingTwo">
               <img className="heart" src={heart} />
-              <span className="ranking">9.2K loves</span>
+              <span className="ranking">{loves} loves</span>
             </div>
           </div>
           <p className="limited">limited - edition . exclusive</p>
         </div>
         <div className="two">
-          <p className="product">$99.00</p>
+          <p className="product">${Number.parseFloat(price).toFixed(2)}</p>
           <p className="product-title">($150.00 value)</p>
           <div className="interest">
             <p>Pay in 4 interest-free</p>

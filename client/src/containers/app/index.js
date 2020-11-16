@@ -37,7 +37,10 @@ class App extends Component {
         <AppStyles>
           <Preview product={this.state.product} />
           <section id="details">
-            <Basket />
+            <Basket
+              brand_name={this.state.brand.name}
+              product={this.state.product}
+            />
             <Shipping />
             <Tabs />
           </section>
