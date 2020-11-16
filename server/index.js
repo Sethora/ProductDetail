@@ -5,7 +5,6 @@ const path = require('path');
 const upload = require('./middleware/UploadFile');
 const cors = require('cors');
 const { getInstance, saveProduct, getProducts, saveStore, saveBrand } = require('./database');
-// require('./database/SeedingScript');
 
 const app = express();
 const port = 3002;
@@ -53,8 +52,6 @@ app.post('/brand/create', (req, res, next) => {
 app.post('/product/create', upload, (req, res, next) => {
   const files = req.files;
   const product = JSON.parse(req.body.product);
-  // console.log(product)
-  // console.log('these are the files ', ext);
   const images = files.map(img => {
     const ext = img
     return {
