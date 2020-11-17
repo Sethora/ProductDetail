@@ -29,7 +29,10 @@ const getProducts = () => {
 const saveStore = (store) => {
   return Promise.resolve(StoreModel.create(store))
     .then(result => result)
-    .catch(error => error);
+    .catch(error => {
+      console.log(error)
+      return error;
+    });
 };
 
 const getStore = (code) => {

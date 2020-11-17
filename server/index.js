@@ -27,6 +27,7 @@ getInstance();
 
 app.post('/store/create', (req, res, next) => {
   const { store } = req.body;
+  console.log(store)
   saveStore(store)
     .then(result => {
       if (result.code !== undefined) {
@@ -57,7 +58,23 @@ app.post('/brand/create', (req, res, next) => {
     })
 });
 
-app.post('/product/create', upload, (req, res, next) => {
+app.post('/product/create', (req, res, next) => {
+  const { product } = req.body;
+  saveProduct(product)
+    .then(result => {
+      if (result.code !== undefined) {
+        res.status(200).send({ "message": "successfully inserted" })
+      } else {
+        res.status(404).send({ "message": "Oops there was an error, please try again" })
+      }
+    })
+    .catch(error => {
+      console.log(error);
+      res.status(500).send();
+    })
+});
+
+app.post('/product/manager/create', upload, (req, res, next) => {
   const files = req.files;
   const product = JSON.parse(req.body.product);
   const images = files.map(img => {
@@ -110,6 +127,12 @@ app.get('/product/get', (req, res, next) => {
     });
 });
 
-app.listen(port, (req, res, next) => {
-  console.log('I\'m up');
-});
+if (process.env.NODE_ENV !== 'test') {
+  app.listen(port, (req, res, next) => {
+    console.log('I\'m up');
+  });
+}
+
+module.exports = {
+  app
+};
