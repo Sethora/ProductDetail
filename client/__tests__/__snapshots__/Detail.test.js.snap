@@ -1,20 +1,26 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Detail component renders 1`] = `
-<DocumentFragment>
-  <div
-    class="sc-bdfBwQ kqAbSP"
-  >
-    <p
-      class="fan"
+<Detail
+  text="Now you don't"
+  title="Noe you see me"
+>
+  <styled.div>
+    <div
+      className="sc-bdfBwQ kqAbSP"
     >
-      <span
-        data-testid="spantag"
+      <p
+        className="fan"
       >
-        Noe you see me 
-      </span>
-      Now you don't
-    </p>
-  </div>
-</DocumentFragment>
+        <span
+          data-testid="spantag"
+        >
+          Noe you see me
+           
+        </span>
+        Now you don't
+      </p>
+    </div>
+  </styled.div>
+</Detail>
 `;

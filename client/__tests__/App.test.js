@@ -1,20 +1,22 @@
 import React from 'react';
-import '@testing-library/jest-dom';
-import { render, cleanup } from '@testing-library/react';
-import Detail from '../src/components/detail';
+import { shallow } from 'enzyme';
+import App from '../src/containers/app';
+import Shipping from '../src/components/shipping';
+import GlobalFonts from '../src/assets/fonts/fonts';
+import Preview from '../src/containers/preview';
+import Tabs from '../src/components/tabs';
 
-afterEach(cleanup);
-
-describe('Detail component', () => {
-  it('renders', () => {
-    const { asFragment } = render(<Detail title="Noe you see me" text="Now you don't" />);
-    expect(asFragment()).toMatchSnapshot();
+describe('App', () => {
+  let wrapper;
+  console.log(shallow)
+  beforeAll((done) => {
+    wrapper = shallow(<App />);
+    done();
   });
 
-  it('inserts text in span', () => {
-    const { getByTestId, getByText } = render(<Detail title="Help Desk" text="On lunch" />);
-
-    expect(getByTestId('spantag')).toHaveTextContent('Help Desk');
-    expect(getByText('On lunch')).toHaveClass('fan');
-  });
+  test('should render correctly', () => expect(wrapper).toMatchSnapshot());
+  test('should contain Shipping tag', () => expect(wrapper.contains(<Shipping />)).toBe(true));
+  test('should contain the global fonts', () => expect(wrapper.contains(<GlobalFonts />)).toBe(true));
+  test('should contain the Preview component', () => expect(wrapper.contains(<Preview product={{}} />)).toBe(true));
+  test('should contain the Tabs component', () => expect(wrapper.contains(<Tabs tabs={[]} />)).toBe(true));
 });

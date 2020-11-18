@@ -1,20 +1,32 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Tab component renders 1`] = `
-<DocumentFragment>
-  <div
-    class="sc-bdfBwQ hrmhkb"
+<Tab
+  click={[Function]}
+  position={0}
+  selected={0}
+  value="Detail"
+>
+  <styled.div
     data-testid="tabstyles"
+    onClick={[Function]}
+    position={0}
   >
     <div
-      class="clicked"
-      role="title"
+      className="sc-bdfBwQ hrmhkb"
+      data-testid="tabstyles"
+      onClick={[Function]}
     >
-      Detail
+      <div
+        className="clicked"
+        role="title"
+      >
+        Detail
+      </div>
+      <div
+        className="divider"
+      />
     </div>
-    <div
-      class="divider"
-    />
-  </div>
-</DocumentFragment>
+  </styled.div>
+</Tab>
 `;

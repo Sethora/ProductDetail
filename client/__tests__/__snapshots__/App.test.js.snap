@@ -1,20 +1,23 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Detail component renders 1`] = `
-<DocumentFragment>
-  <div
-    class="sc-bdfBwQ kqAbSP"
-  >
-    <p
-      class="fan"
+exports[`App should render correctly 1`] = `
+<ModalProvider>
+  <Memo(l) />
+  <styled.div>
+    <Preview
+      product={Object {}}
+    />
+    <section
+      id="details"
     >
-      <span
-        data-testid="spantag"
-      >
-        Noe you see me 
-      </span>
-      Now you don't
-    </p>
-  </div>
-</DocumentFragment>
+      <Basket
+        product={Object {}}
+      />
+      <Shipping />
+      <Tabs
+        tabs={Array []}
+      />
+    </section>
+  </styled.div>
+</ModalProvider>
 `;

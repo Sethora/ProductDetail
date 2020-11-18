@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Left Arrow render the left arrow 1`] = `
+<styled.div
+  height={28}
+  id="right"
+  onClick={[Function]}
+  width={28}
+>
+  <img
+    className="icons"
+    src={null}
+  />
+</styled.div>
+`;

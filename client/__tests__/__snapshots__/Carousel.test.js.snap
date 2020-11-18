@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Outer carousel  should render correctly 1`] = `
+<styled.div>
+  <LeftArrow
+    height={28}
+    slide={[Function]}
+    width={28}
+  />
+  <Card
+    height={70}
+    reference={
+      Object {
+        "current": null,
+      }
+    }
+    scroll={[Function]}
+    width={70}
+  />
+  <RightArrow
+    height={28}
+    slide={[Function]}
+    width={28}
+  />
+</styled.div>
+`;
