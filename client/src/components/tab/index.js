@@ -6,10 +6,11 @@ const Tab = (props) => {
   const clicked = selected === position;
   return (
     <TabStyles
+      data-testid="tabstyles"
       onClick={() => click(props.position)}
       position={props.position}
     >
-      <div className={clicked ? 'clicked' : 'outer'}>
+      <div role='title' className={clicked ? 'clicked' : 'outer'}>
         {props.value}
       </div>
       {(clicked) ? <div className="divider"></div> : null}

@@ -15,7 +15,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: ['babel-loader']
       },
@@ -45,6 +45,9 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       title: 'Sethora',
+      favicon: false,
+      showErrors: true,
+      cache: true,
       template: path.resolve(__dirname, './src/index.html'),
       filename: 'index.html'
     }),
