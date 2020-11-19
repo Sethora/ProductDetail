@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Magnifier from 'react-magnifier';
 import ReactImageMagnify from 'react-image-magnify';
 import PreviewStyles from './PreviewStyles';
 import Carousel from '../../components/carousel/outer-carousel';
@@ -12,7 +11,8 @@ class Preview extends Component {
 
     this.state = {
       photos: [],
-      indexSelected: 0
+      indexSelected: 0,
+      previousIndex: 0
     };
 
   }
@@ -24,7 +24,16 @@ class Preview extends Component {
   }
 
   imagePreviewHandler(indexSelected) {
-    this.setState({ indexSelected });
+    this.setState({ indexSelected, previousIndex: indexSelected });
+  }
+
+  onEnterHandler(index) {
+    if (this.state.indexSelected !== index) {
+      this.setState({ previousIndex: this.state.indexSelected, indexSelected: index });
+    }
+  }
+  onLeaveHandler() {
+    this.setState({ indexSelected: this.state.previousIndex });
   }
 
   render() {
@@ -39,6 +48,8 @@ class Preview extends Component {
         <Carousel
           photos={photos}
           click={this.imagePreviewHandler.bind(this)}
+          enter={this.onEnterHandler.bind(this)}
+          leave={this.onLeaveHandler.bind(this)}
         />
       </PreviewStyles>
     );

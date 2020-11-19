@@ -46,6 +46,8 @@ class Carousel extends Component {
           cards={this.props.photos}
           scroll={this.onScroll.bind(this)}
           click={this.props.click}
+          enter={this.props.enter}
+          leave={this.props.leave}
           height={70}
           width={70}
         />

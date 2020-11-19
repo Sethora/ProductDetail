@@ -14,6 +14,8 @@ const Card = (props) => {
           return <img
             key={index}
             src={el}
+            onMouseEnter={() => props.enter(index)}
+            onMouseLeave={() => props.leave()}
             className="box"
             onClick={() => props.click(index)}
           />

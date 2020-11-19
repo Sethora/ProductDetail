@@ -25,7 +25,7 @@ app.use(express.static(path.resolve(__dirname, '../public')));
 getInstance();
 
 
-app.post('/store/create', (req, res, next) => {
+app.post('/api/store/create', (req, res, next) => {
   const { store } = req.body;
   console.log(store)
   saveStore(store)
@@ -42,7 +42,7 @@ app.post('/store/create', (req, res, next) => {
     });
 });
 
-app.post('/brand/create', (req, res, next) => {
+app.post('/api/brand/create', (req, res, next) => {
   const { brand } = req.body;
   saveBrand(brand)
     .then(result => {
@@ -58,7 +58,7 @@ app.post('/brand/create', (req, res, next) => {
     })
 });
 
-app.post('/product/create', (req, res, next) => {
+app.post('/api/product/create', (req, res, next) => {
   const { product } = req.body;
   saveProduct(product)
     .then(result => {
@@ -74,7 +74,7 @@ app.post('/product/create', (req, res, next) => {
     })
 });
 
-app.post('/product/manager/create', upload, (req, res, next) => {
+app.post('/api/product/manager/create', upload, (req, res, next) => {
   const files = req.files;
   const product = JSON.parse(req.body.product);
   const images = files.map(img => {
@@ -102,7 +102,7 @@ app.post('/product/manager/create', upload, (req, res, next) => {
     });
 });
 
-app.get('/product/get', (req, res, next) => {
+app.get('/api/product/get', (req, res, next) => {
   let product;
   getProducts()
     .then(products => {
