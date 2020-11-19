@@ -10,7 +10,7 @@ module.exports = {
   entry: ['@babel/polyfill', SRC_DIR],
   output: {
     path: PUBLIC_DIR,
-    filename: '[name].bundle.js',
+    filename: 'bundle.js',
   },
   module: {
     rules: [

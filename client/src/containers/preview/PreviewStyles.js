@@ -8,10 +8,8 @@ const PreviewStyles = styled.div`
   width: 95%;
   padding: 2%;
   .img {
-    height: 44%;
-    width: 92%;
     cursor: pointer;
-    border-radius: 6px;
+    border-radius: 500px;
     margin-bottom: 8%;
   }
 `;

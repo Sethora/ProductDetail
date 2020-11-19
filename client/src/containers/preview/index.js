@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import Magnifier from 'react-magnifier';
+import ReactImageMagnify from 'react-image-magnify';
 import PreviewStyles from './PreviewStyles';
 import Carousel from '../../components/carousel/outer-carousel';
 import InnerCarousel from '../../components/carousel/inner-carousel';
@@ -47,12 +49,25 @@ const ImgInner = (props) => {
   const { openModal } = useModalContext();
   InnerCarousel.photos = props.photos;
   InnerCarousel.selected = props.selected;
+
   return (
-    <img
+    <div
       className="img"
       onClick={() => openModal(InnerCarousel)}
-      src={props.preview}
-    />
+    >
+      <ReactImageMagnify {...{
+        smallImage: {
+          src: `${props.preview}`,
+          height: 500,
+          width: 440
+        },
+        largeImage: {
+          src: `${props.preview}`,
+          width: 1200,
+          height: 1800
+        }
+      }} />
+    </div>
   );
 };
 
