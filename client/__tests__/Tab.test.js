@@ -1,5 +1,3 @@
-import React from 'react';
-import { mount } from 'enzyme';
 import Tab from '../src/components/tab';
 
 describe('Tab component', () => {

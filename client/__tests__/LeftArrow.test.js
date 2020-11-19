@@ -1,5 +1,3 @@
-import React from 'react';
-import { shallow } from 'enzyme';
 import LeftArrow from '../src/components/carousel/left-arrow';
 
 describe('Left Arrow', () => {

@@ -1,5 +1,3 @@
-import React from 'react';
-import { mount } from 'enzyme';
 import Detail from '../src/components/detail';
 
 describe('Detail component', () => {
