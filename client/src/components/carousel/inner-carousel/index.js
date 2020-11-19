@@ -6,6 +6,7 @@ import Card from '../card';
 
 export default function InnerCarousel(props) {
   const [selected, setSelected] = useState(InnerCarousel.selected);
+  const [previousIndex, setPreviousIndex] = useState(InnerCarousel.selected);
   const [horizontalPoint, setHorizontalPoint] = useState(0);
   const [photos, setPhotos] = useState(InnerCarousel.photos);
   const mySlide = createRef();
@@ -42,7 +43,17 @@ export default function InnerCarousel(props) {
   };
   const onClick = (position) => {
     setSelected(position);
+    setPreviousIndex(position);
   };
+  const onEnterHandler = (index) => {
+    setPreviousIndex(selected);
+    setSelected(index);
+  };
+  const onLeaveHandler = () => {
+    setSelected(previousIndex);
+  };
+
+
 
   return {
     children: (
@@ -72,6 +83,8 @@ export default function InnerCarousel(props) {
           <Card
             reference={mySlide}
             cards={photos}
+            leave={onLeaveHandler}
+            enter={onEnterHandler}
             scroll={onScroll}
             click={onClick}
             height={80}
