@@ -13,7 +13,7 @@ const Shipping = (props) => {
           <a href='#'>Shipping and Returns</a>
         </div>
         <div>
-          <img className="icons" src={truck} />
+          <img className="icons" src={"https://grubini-images.s3.amazonaws.com/icons/truck.png"} />
         </div>
       </div>
       <div id="divider"></div>
@@ -24,7 +24,7 @@ const Shipping = (props) => {
           <p className="shipping-info">Select to see availability at <strong>Reston</strong></p>
         </div>
         <div>
-          <img className="icons" src={pickup} />
+          <img className="icons" src={"https://grubini-images.s3.amazonaws.com/icons/pickup.png"} />
         </div>
       </div>
     </ShippingStyles>

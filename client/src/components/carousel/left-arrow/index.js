@@ -10,7 +10,7 @@ const LeftArrow = (props) => {
       height={props.height}
       width={props.width}
     >
-      <img className="icons" src={leftArrow} />
+      <img className="icons" src={"https://grubini-images.s3.amazonaws.com/icons/leftArrow.png"} />
     </LeftArrowStyles>
   );
 };

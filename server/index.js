@@ -15,17 +15,17 @@ const {
 } = require('./database');
 
 const app = express();
-const port = 3002;
+const port = 3001;
 
 
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static(path.resolve(__dirname, '../public')));
+app.use(express.static(path.join(__dirname, '../public')));
 getInstance();
 
 
-app.post('/store/create', (req, res, next) => {
+app.post('/api/store/create', (req, res, next) => {
   const { store } = req.body;
   saveStore(store)
     .then(result => {
@@ -41,7 +41,7 @@ app.post('/store/create', (req, res, next) => {
     });
 });
 
-app.post('/brand/create', (req, res, next) => {
+app.post('/api/brand/create', (req, res, next) => {
   const { brand } = req.body;
   saveBrand(brand)
     .then(result => {
@@ -57,7 +57,23 @@ app.post('/brand/create', (req, res, next) => {
     })
 });
 
-app.post('/product/create', upload, (req, res, next) => {
+app.post('/api/product/create', (req, res, next) => {
+  const { product } = req.body;
+  saveProduct(product)
+    .then(result => {
+      if (result.code !== undefined) {
+        res.status(200).send({ "message": "successfully inserted" })
+      } else {
+        res.status(404).send({ "message": "Oops there was an error, please try again" })
+      }
+    })
+    .catch(error => {
+      console.log(error);
+      res.status(500).send();
+    })
+});
+
+app.post('/api/product/manager/create', upload, (req, res, next) => {
   const files = req.files;
   const product = JSON.parse(req.body.product);
   const images = files.map(img => {
@@ -85,7 +101,7 @@ app.post('/product/create', upload, (req, res, next) => {
     });
 });
 
-app.get('/product/get', (req, res, next) => {
+app.get('/api/product/get', (req, res, next) => {
   let product;
   getProducts()
     .then(products => {
@@ -110,6 +126,12 @@ app.get('/product/get', (req, res, next) => {
     });
 });
 
-app.listen(port, (req, res, next) => {
-  console.log('I\'m up');
-});
+if (process.env.NODE_ENV !== 'test') {
+  app.listen(port, (req, res, next) => {
+    console.log('I\'m up');
+  });
+}
+
+module.exports = {
+  app
+};

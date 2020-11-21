@@ -4,7 +4,7 @@ import DetailStyles from './DetailStyles';
 const Detail = (props) => {
   return (
     <DetailStyles>
-      <p><span>{props.title} </span>{props.text}</p>
+      <p className="fan"><span data-testid="spantag">{props.title} </span>{props.text}</p>
     </DetailStyles>
   );
 };

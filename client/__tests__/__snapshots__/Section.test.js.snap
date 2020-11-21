@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Section component renders the component 1`] = `
+<styled.div>
+  <Detail
+    title=""
+  />
+</styled.div>
+`;

@@ -1,11 +1,17 @@
-export const pic1 = require('./pic1.jpeg');
-export const pic2 = require('./pic2.jpeg');
-export const pic3 = require('./pic3.jpg');
-export const pic4 = require('./pic4.png');
-export const rightArrow = require('./rightArrow.png');
-export const leftArrow = require('./leftArrow.png');
-export const star = require('./star.png');
-export const heart = require('./heart.png');
-export const empty = require('./emptyheart.png');
-export const truck = require('./truck.png');
-export const pickup = require('./pickup.png');
+import rightArrow from './rightArrow.png';
+import leftArrow from './leftArrow.png';
+import star from './star.png';
+import heart from './heart.png';
+import empty from './emptyheart.png';
+import truck from './truck.png';
+import pickup from './pickup.png';
+
+export {
+  rightArrow,
+  leftArrow,
+  star,
+  heart,
+  empty,
+  truck,
+  pickup
+};

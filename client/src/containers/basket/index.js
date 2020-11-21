@@ -34,7 +34,7 @@ class Basket extends Component {
             </div>
             |
             <div className="flowingTwo">
-              <img className="heart" src={heart} />
+              <img className="heart" src={"https://grubini-images.s3.amazonaws.com/icons/heart.png"} />
               <span className="ranking">{loves} loves</span>
             </div>
           </div>
@@ -58,7 +58,7 @@ class Basket extends Component {
           <div className="buttons">
             <div className="button button-txt" id="buttonOne">Add to Basket</div>
             <div className="button button-txt" id="buttonTwo">
-              <img className="icon" src={empty} />
+              <img className="icon" src={"https://grubini-images.s3.amazonaws.com/icons/emptyheart.png"} />
               Add to Loves
             </div>
           </div>

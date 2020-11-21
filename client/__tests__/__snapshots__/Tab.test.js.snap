@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tab component renders 1`] = `
+<Tab
+  click={[Function]}
+  position={0}
+  selected={0}
+  value="Detail"
+>
+  <styled.div
+    data-testid="tabstyles"
+    onClick={[Function]}
+    position={0}
+  >
+    <div
+      className="sc-bdfBwQ hrmhkb"
+      data-testid="tabstyles"
+      onClick={[Function]}
+    >
+      <div
+        className="clicked"
+        role="title"
+      >
+        Detail
+      </div>
+      <div
+        className="divider"
+      />
+    </div>
+  </styled.div>
+</Tab>
+`;

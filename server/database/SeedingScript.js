@@ -61,3 +61,9 @@ const insertRandom = async () => {
 
 getInstance();
 insertRandom();
+
+module.exports = {
+  getRandomBrand,
+  getRandomProduct,
+  getRandomStore
+};

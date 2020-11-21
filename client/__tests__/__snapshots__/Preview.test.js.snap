@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Preview component should render the component 1`] = `
+<styled.div>
+  <ImgInner
+    photos={Array []}
+    selected={0}
+  />
+  <Carousel
+    click={[Function]}
+    photos={Array []}
+  />
+</styled.div>
+`;

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactImageMagnify from 'react-image-magnify';
 import PreviewStyles from './PreviewStyles';
 import Carousel from '../../components/carousel/outer-carousel';
 import InnerCarousel from '../../components/carousel/inner-carousel';
@@ -10,7 +11,8 @@ class Preview extends Component {
 
     this.state = {
       photos: [],
-      indexSelected: 0
+      indexSelected: 0,
+      previousIndex: 0
     };
 
   }
@@ -22,7 +24,16 @@ class Preview extends Component {
   }
 
   imagePreviewHandler(indexSelected) {
-    this.setState({ indexSelected });
+    this.setState({ indexSelected, previousIndex: indexSelected });
+  }
+
+  onEnterHandler(index) {
+    if (this.state.indexSelected !== index) {
+      this.setState({ previousIndex: this.state.indexSelected, indexSelected: index });
+    }
+  }
+  onLeaveHandler() {
+    this.setState({ indexSelected: this.state.previousIndex });
   }
 
   render() {
@@ -37,6 +48,8 @@ class Preview extends Component {
         <Carousel
           photos={photos}
           click={this.imagePreviewHandler.bind(this)}
+          enter={this.onEnterHandler.bind(this)}
+          leave={this.onLeaveHandler.bind(this)}
         />
       </PreviewStyles>
     );
@@ -47,12 +60,25 @@ const ImgInner = (props) => {
   const { openModal } = useModalContext();
   InnerCarousel.photos = props.photos;
   InnerCarousel.selected = props.selected;
+
   return (
-    <img
+    <div
       className="img"
       onClick={() => openModal(InnerCarousel)}
-      src={props.preview}
-    />
+    >
+      <ReactImageMagnify {...{
+        smallImage: {
+          src: `${props.preview}`,
+          height: 500,
+          width: 440
+        },
+        largeImage: {
+          src: `${props.preview}`,
+          width: 1200,
+          height: 1800
+        }
+      }} />
+    </div>
   );
 };
 

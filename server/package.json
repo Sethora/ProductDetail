@@ -6,7 +6,12 @@
   "scripts": {
     "start": "nodemon .",
     "seed": "node ./database/SeedingScript.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "NODE_ENV=test jest --forceExit --detectOpenHandles  --watchAll --maxWorkers=1"
+  },
+  "jest": {
+    "verbose": true,
+    "timers": "fake",
+    "testEnvironment": "jsdom"
   },
   "keywords": [],
   "author": "",
@@ -23,6 +28,8 @@
   },
   "devDependencies": {
     "faker": "^5.1.0",
-    "nodemon": "^2.0.6"
+    "jest": "^26.6.3",
+    "nodemon": "^2.0.6",
+    "supertest": "^6.0.1"
   }
 }
