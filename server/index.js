@@ -15,19 +15,18 @@ const {
 } = require('./database');
 
 const app = express();
-const port = 3002;
+const port = 3001;
 
 
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static(path.resolve(__dirname, '../public')));
+app.use(express.static(path.join(__dirname, '../public')));
 getInstance();
 
 
 app.post('/api/store/create', (req, res, next) => {
   const { store } = req.body;
-  console.log(store)
   saveStore(store)
     .then(result => {
       if (result.code !== undefined) {

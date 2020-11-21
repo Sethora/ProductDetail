@@ -2,7 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+// const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const SRC_DIR = path.join(__dirname, './src/index.js');
 const PUBLIC_DIR = path.join(__dirname, '../public');
 
@@ -33,15 +33,15 @@ module.exports = {
       },
     ],
   },
-  mode: 'development',
-  devServer: {
-    historyApiFallback: true,
-    contentBase: path.resolve(__dirname, '../public'),
-    open: true,
-    compress: true,
-    hot: true,
-    port: 8080
-  },
+  mode: 'production',
+  // devServer: {
+  //   historyApiFallback: true,
+  //   contentBase: path.resolve(__dirname, '../public'),
+  //   open: true,
+  //   compress: true,
+  //   hot: true,
+  //   port: 8080
+  // },
   plugins: [
     new HtmlWebpackPlugin({
       title: 'Sethora',
@@ -51,7 +51,7 @@ module.exports = {
       template: path.resolve(__dirname, './src/index.html'),
       filename: 'index.html'
     }),
-    new CleanWebpackPlugin(),
+    // new CleanWebpackPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new Dotenv()
   ]
