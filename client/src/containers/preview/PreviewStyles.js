@@ -5,7 +5,7 @@ const PreviewStyles = styled.div`
   flex-direction: column;
   align-items: center;
   max-width: 95%;
-  width: 95%;
+  width: 92%;
   padding: 2%;
   .img {
     cursor: pointer;

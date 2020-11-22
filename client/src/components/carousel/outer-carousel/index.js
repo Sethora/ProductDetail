@@ -34,14 +34,17 @@ class Carousel extends Component {
 
 
   render() {
+    const { window } = this.props;
     return (
-      <CarouselStyles>
+      <CarouselStyles window={window}>
         <LeftArrow
+          window={window}
           slide={this.slideLeft.bind(this)}
           height={28}
           width={28}
         />
         <Card
+          window={window}
           reference={this.mySlide}
           cards={this.props.photos}
           scroll={this.onScroll.bind(this)}
@@ -52,6 +55,7 @@ class Carousel extends Component {
           width={70}
         />
         <RightArrow
+          window={window}
           slide={this.slideRight.bind(this)}
           height={28}
           width={28}

@@ -6,6 +6,7 @@ const LeftArrow = (props) => {
   return (
     <LeftArrowStyles
       id="right"
+      className="lefty"
       onClick={() => props.slide()}
       height={props.height}
       width={props.width}

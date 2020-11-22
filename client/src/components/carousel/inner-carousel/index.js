@@ -59,7 +59,7 @@ export default function InnerCarousel(props) {
     children: (
       <InnerCarouselStyles>
         <div className="mainWrapper">
-          <div className='one'>
+          <div className='one container'>
             <LeftArrow
               height={44}
               width={34}
@@ -70,7 +70,7 @@ export default function InnerCarousel(props) {
             src={photos[selected]}
             className="image"
           />
-          <div className='two'>
+          <div className='two container'>
             <RightArrow
               height={48}
               width={32}

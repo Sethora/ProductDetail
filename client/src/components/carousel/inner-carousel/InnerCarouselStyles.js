@@ -1,10 +1,6 @@
 import styled from 'styled-components';
 
 const InnerCarouselStyles = styled.div`
-display: flex;
-flex-direction: column;
-justify-content: center;
-
 .mainWrapper {
   display: flex;
   justify-content: center;
@@ -27,6 +23,11 @@ justify-content: center;
 .image {
   height: 80%;
   width: 55%;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 .one {
   height: 100%;

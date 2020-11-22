@@ -38,15 +38,18 @@ class Preview extends Component {
 
   render() {
     const { photos, indexSelected } = this.state;
+    const { window } = this.props;
     return (
-      <PreviewStyles>
+      <PreviewStyles window={window}>
         <ImgInner
           photos={photos}
+          window={window}
           preview={photos[indexSelected]}
           selected={indexSelected}
         />
         <Carousel
           photos={photos}
+          window={window}
           click={this.imagePreviewHandler.bind(this)}
           enter={this.onEnterHandler.bind(this)}
           leave={this.onLeaveHandler.bind(this)}
@@ -58,6 +61,7 @@ class Preview extends Component {
 
 const ImgInner = (props) => {
   const { openModal } = useModalContext();
+  const { windowHeight, windowWidth } = props.window;
   InnerCarousel.photos = props.photos;
   InnerCarousel.selected = props.selected;
 
@@ -66,11 +70,12 @@ const ImgInner = (props) => {
       className="img"
       onClick={() => openModal(InnerCarousel)}
     >
+      {/* ((96.7 / 100) * ((100 / 375) * width)), */}
       <ReactImageMagnify {...{
         smallImage: {
           src: `${props.preview}`,
-          height: 500,
-          width: 440
+          height: (96.7 / 1000) * ((3900 / windowWidth) * windowWidth),
+          width: (96.7 / 1000) * ((3900 / windowWidth) * windowWidth)
         },
         largeImage: {
           src: `${props.preview}`,

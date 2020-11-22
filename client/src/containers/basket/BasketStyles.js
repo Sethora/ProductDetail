@@ -4,8 +4,10 @@ const BasketStyles = styled.div`
 display: flex;
 height: 16%;
 select {
-  height: 22%;
+  height: 28px;
+  width: 38px;
   padding: 1%;
+  margin: 0 3%;
 }
 .product-title {
   margin-top: 1%;
@@ -89,8 +91,8 @@ select {
   display: flex;
   justify-content: space-between;
   .button {
-    width: 20vh;
-    height: 28%;
+    width: ${props => (96.7 / 1000) * ((1800 / props.window.windowWidth) * props.window.windowWidth)}px;
+    height: ${props => (96.7 / 1000) * ((420 / props.window.windowWidth) * props.window.windowWidth)}px;
     display: flex;
     align-items: center;
     justify-content: center;

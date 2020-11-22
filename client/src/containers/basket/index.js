@@ -15,8 +15,9 @@ class Basket extends Component {
       reviews = '93',
       loves = '9.2K'
     } = this.props.product;
+    const { windowHeight, windowWidth } = this.props.window;
     return (
-      <BasketStyles>
+      <BasketStyles window={this.props.window}>
         <div className="one">
           <div className="subOne">
             <label className="product">{this.props.brand_name}</label>

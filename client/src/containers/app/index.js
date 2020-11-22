@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { AppStyles } from './AppStyles';
+import { WindowDimensionContext } from '../../context/WindowDimensionContext';
 import Preview from '../preview';
 import Basket from '../basket';
 import Shipping from '../../components/shipping';
@@ -44,20 +45,33 @@ class App extends Component {
 
   render() {
     return (
-      <ModalProvider>
-        <GlobalFonts />
-        <AppStyles>
-          <Preview product={this.state.product} />
-          <section id="details">
-            <Basket
-              brand_name={this.state.brand.name}
-              product={this.state.product}
-            />
-            <Shipping />
-            <Tabs tabs={this.state.tabs} />
-          </section>
-        </AppStyles>
-      </ModalProvider>
+      <WindowDimensionContext.Consumer>
+        {(window) => (
+          <ModalProvider>
+            <GlobalFonts />
+            <AppStyles window={window}>
+              <Preview
+                window={window}
+                product={this.state.product}
+              />
+              <section
+                id="details"
+                window={window}
+              >
+                <Basket
+                  window={window}
+                  brand_name={this.state.brand.name}
+                  product={this.state.product}
+                />
+                <Shipping window={window} />
+                <Tabs
+                  window={window}
+                  tabs={this.state.tabs}
+                />
+              </section>
+            </AppStyles>
+          </ModalProvider>)}
+      </WindowDimensionContext.Consumer>
     );
   }
 }

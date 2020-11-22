@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const Dotenv = require('dotenv-webpack');
 // const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const SRC_DIR = path.join(__dirname, './src/index.js');
@@ -29,19 +30,19 @@ module.exports = {
       },
       {
         test: /\.(css)$/,
-        use: ['style-loader', 'css-loader', 'postcss-loader']
+        use: [MiniCssExtractPlugin.loader, 'style-loader', 'css-loader', 'postcss-loader']
       },
     ],
   },
   mode: 'production',
-  // devServer: {
-  //   historyApiFallback: true,
-  //   contentBase: path.resolve(__dirname, '../public'),
-  //   open: true,
-  //   compress: true,
-  //   hot: true,
-  //   port: 8080
-  // },
+  devServer: {
+    historyApiFallback: true,
+    // contentBase: path.resolve(__dirname, '../public'),
+    open: true,
+    compress: true,
+    hot: true,
+    port: 8082
+  },
   plugins: [
     new HtmlWebpackPlugin({
       title: 'Sethora',
@@ -53,6 +54,7 @@ module.exports = {
     }),
     // new CleanWebpackPlugin(),
     new webpack.HotModuleReplacementPlugin(),
+    new MiniCssExtractPlugin(),
     new Dotenv()
   ]
 };
