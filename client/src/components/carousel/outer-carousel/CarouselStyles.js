@@ -4,8 +4,8 @@ const CarouselStyles = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  height: 10%;
-  width: ${(props => (96.7 / 1000) * ((3950 / props.windowWidth) * props.windowWidth))};
+  height: ${(props => (96.7 / 1000) * ((1000 / props.window.windowWidth) * props.window.windowWidth))}px;
+  width: ${(props => (96.7 / 1000) * ((3950 / props.window.windowWidth) * props.window.windowWidth))}px;
 `;
 
 export default CarouselStyles;

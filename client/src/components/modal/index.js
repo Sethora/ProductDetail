@@ -17,7 +17,7 @@ const Modal = (props) => {
   }
 
   return (
-    <ModalStyles open={open}>
+    <ModalStyles open={open} window={props.window}>
       <div className="modal-body">
         <button className="modal-exit" onClick={closeModal}></button>
         <div className="modal-content">
@@ -32,7 +32,7 @@ export const useModalContext = () => {
   return useContext(ModalContext);
 };
 
-export const ModalProvider = ({ children }) => {
+export const ModalProvider = ({ children, window }) => {
   const [{ open, content }, setContent] = useState({
     open: false,
     content: () => ({})
@@ -50,7 +50,7 @@ export const ModalProvider = ({ children }) => {
         }
       }}
     >
-      <Modal />
+      <Modal window={window} />
       {children}
     </ModalContext.Provider>
   );

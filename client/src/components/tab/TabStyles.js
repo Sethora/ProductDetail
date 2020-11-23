@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const TabStyles = styled.div`
 margin-top: 2%;
 width: 100%;
-font-size: 0.9rem;
+font-size: 0.8rem;
 .outer {
   cursor: pointer;
   padding: 8% 4%;

@@ -27,15 +27,17 @@ class Basket extends Component {
             </div>
           </div>
           <div className="subTwo">
-            <div className="flowingOne">
+            <div className="flowingOne ranking">
               {
-                [1, 2, 3, 4, 5].map((el, index) => <img className="star" key={`index-${index}`} src={star} />)
+                [1, 2, 3, 4, 5].map((el, index) => <img className="icon" key={`index-${index}`} src={"https://grubini-images.s3.amazonaws.com/icons/star.png"} />)
               }
-              <span className="fontOne ranking">{reviews} reviews</span>
+              <span>{reviews} reviews</span>
             </div>
-            |
+
+            <div id="divider"></div>
+
             <div className="flowingTwo">
-              <img className="heart" src={"https://grubini-images.s3.amazonaws.com/icons/heart.png"} />
+              <img className="icon" src={"https://grubini-images.s3.amazonaws.com/icons/heart.png"} />
               <span className="ranking">{loves} loves</span>
             </div>
           </div>

@@ -31,8 +31,8 @@ const ModalStyles = styled.div`
     }
     .modal-body {
       position: relative;
-      width: 90%;
-      height: 70%;
+      width: ${(props => (96.7 / 1000) * ((3950 / props.window.windowWidth) * props.window.windowWidth))};
+      height: ${(props => (96.7 / 1000) * ((3950 / props.window.windowWidth) * props.window.windowWidth))};
       max-width: 1200px;
       background: white;
       padding: 2rem;

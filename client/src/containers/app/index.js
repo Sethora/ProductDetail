@@ -47,24 +47,26 @@ class App extends Component {
     return (
       <WindowDimensionContext.Consumer>
         {(window) => (
-          <ModalProvider>
+          <ModalProvider window={window}>
             <GlobalFonts />
             <AppStyles window={window}>
               <Preview
                 window={window}
                 product={this.state.product}
               />
-              <section
-                id="details"
-                window={window}
-              >
+              <section window={window}>
                 <Basket
+                  id="basket"
                   window={window}
                   brand_name={this.state.brand.name}
                   product={this.state.product}
                 />
-                <Shipping window={window} />
+                <Shipping
+                  id="shipping"
+                  window={window}
+                />
                 <Tabs
+                  id="Tabs"
                   window={window}
                   tabs={this.state.tabs}
                 />
