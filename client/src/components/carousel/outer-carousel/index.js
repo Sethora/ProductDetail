@@ -1,15 +1,15 @@
 import React, { Component, createRef } from 'react';
 import CarouselStyles from './CarouselStyles';
 import Card from '../card';
-import LeftArrow from '../left-arrow';
-import RightArrow from '../right-arrow';
+import Arrow from '../arrow';
 
 class Carousel extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      horizontalPoint: 0
+      horizontalPoint: 0,
+      direction: 'left'
     };
     this.mySlide = createRef();
   }
@@ -31,34 +31,41 @@ class Carousel extends Component {
   onScroll() {
     this.setState({ horizontalPoint: this.mySlide.current.scrollLeft });
   }
+  changeDirection(side) {
+    if (this.state.direction !== side) {
+      this.setState({ direction: side });
+    }
+  }
+
 
 
   render() {
     const { window } = this.props;
     return (
       <CarouselStyles window={window}>
-        <LeftArrow
-          window={window}
-          slide={this.slideLeft.bind(this)}
+        <Arrow
           height={28}
           width={28}
+          side={'left'}
+          slide={this.changeDirection.bind(this)}
         />
         <Card
+          height={70}
+          width={70}
           window={window}
           reference={this.mySlide}
-          cards={this.props.photos}
-          scroll={this.onScroll.bind(this)}
           click={this.props.click}
           enter={this.props.enter}
           leave={this.props.leave}
-          height={70}
-          width={70}
+          cards={this.props.photos}
+          scroll={this.onScroll.bind(this)}
+          styling={this.state.direction === 'right' ? 'transform' : ''}
         />
-        <RightArrow
-          window={window}
-          slide={this.slideRight.bind(this)}
+        <Arrow
           height={28}
           width={28}
+          side={'right'}
+          slide={this.changeDirection.bind(this)}
         />
       </CarouselStyles>
     );

@@ -1,15 +1,17 @@
 import React, { useState, createRef } from 'react';
 import InnerCarouselStyles from './InnerCarouselStyles';
-import LeftArrow from '../left-arrow';
-import RightArrow from '../right-arrow';
+import Arrow from '../arrow';
 import Card from '../card';
+import $ from 'jquery';
 
 export default function InnerCarousel(props) {
+  const mySlide = createRef();
+  const [x, setX] = useState(0);
+  const [references, setReferences] = useState([]);
+  const [direction, setDirection] = useState(false);
+  const [photos, setPhotos] = useState(InnerCarousel.photos);
   const [selected, setSelected] = useState(InnerCarousel.selected);
   const [previousIndex, setPreviousIndex] = useState(InnerCarousel.selected);
-  const [horizontalPoint, setHorizontalPoint] = useState(0);
-  const [photos, setPhotos] = useState(InnerCarousel.photos);
-  const mySlide = createRef();
 
   const changePicture = () => {
     let newSelected = selected + 1;
@@ -19,61 +21,65 @@ export default function InnerCarousel(props) {
   }
 
   const slideRight = () => {
-    let newSelected = selected + 1;
-    if (newSelected < photos.length) {
-      setSelected(newSelected);
-    }
-    if (horizontalPoint < 1200) {
-      setHorizontalPoint((state) => state + 50);
-      mySlide.current.scrollLeft = horizontalPoint;
+    if (selected < photos.length - 1) {
+      setSelected(selected + 1);
+      setX(x - 660);
     }
   };
   const slideLeft = () => {
-    let newSelected = selected - 1;
-    if (newSelected >= 0) {
-      setSelected(newSelected);
+    if (selected > 0) {
+      setX(x + 660);
+      setSelected(selected - 1);
     }
-    if (horizontalPoint > 0) {
-      setHorizontalPoint((state) => state - 50);
-      mySlide.current.scrollLeft = horizontalPoint;
-    }
-  };
-  const onScroll = () => {
-    setHorizontalPoint(mySlide.current.scrollLeft);
   };
   const onClick = (position) => {
     setSelected(position);
     setPreviousIndex(position);
+    $(references[position])[0].scrollIntoView();
   };
   const onEnterHandler = (index) => {
     setPreviousIndex(selected);
-    setSelected(index);
+    $(references[index])[0].scrollIntoView();
   };
   const onLeaveHandler = () => {
     setSelected(previousIndex);
+    $(references[previousIndex])[0].scrollIntoView();
   };
-
 
 
   return {
     children: (
-      <InnerCarouselStyles>
+      <InnerCarouselStyles x={x}>
         <div className="mainWrapper">
           <div className='one container'>
-            <LeftArrow
+            <Arrow
               height={44}
               width={34}
+              side={'left'}
               slide={slideLeft}
             />
           </div>
-          <img
-            src={photos[selected]}
-            className="image"
-          />
+          <div className="photoContainer">
+            {
+              photos.map((photo, index) => (
+                <img
+                  src={photo}
+                  className={'image'}
+                  key={`index-${index}image`}
+                  ref={(ref) => {
+                    if (references.length < photos.length) {
+                      references.push(ref);
+                    }
+                  }}
+                />
+              ))
+            }
+          </div>
           <div className='two container'>
-            <RightArrow
+            <Arrow
               height={48}
               width={32}
+              side={'right'}
               slide={slideRight}
             />
           </div>
@@ -81,14 +87,14 @@ export default function InnerCarousel(props) {
         <div className="divider"></div>
         <div className="secondaryWrapper">
           <Card
-            reference={mySlide}
-            cards={photos}
-            leave={onLeaveHandler}
-            enter={onEnterHandler}
-            scroll={onScroll}
-            click={onClick}
             height={80}
             width={74}
+            cards={photos}
+            click={onClick}
+            reference={mySlide}
+            direction={direction}
+            leave={onLeaveHandler}
+            enter={onEnterHandler}
           />
         </div>
       </InnerCarouselStyles>
