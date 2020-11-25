@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import CardStyles from './CardStyles';
 
 const Card = (props) => {
@@ -7,7 +7,6 @@ const Card = (props) => {
       width={props.width}
       height={props.height}
       ref={props.reference}
-      onScroll={() => props.scroll()}
     >
       {
         props.cards.map((el, index) => {
@@ -16,7 +15,7 @@ const Card = (props) => {
             src={el}
             onMouseEnter={() => props.enter(index)}
             onMouseLeave={() => props.leave()}
-            className="box"
+            className={`box ${props.styling}`}
             onClick={() => props.click(index)}
           />
         })

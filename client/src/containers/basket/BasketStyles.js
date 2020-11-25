@@ -2,10 +2,13 @@ import styled from 'styled-components';
 
 const BasketStyles = styled.div`
 display: flex;
+min-height: ${props => (96.7 / 1000) * ((2200 / props.window.windowWidth) * props.window.windowWidth)}px;
 height: 16%;
 select {
-  height: 22%;
+  height: 28px;
+  width: 38px;
   padding: 1%;
+  margin: 0 3%;
 }
 .product-title {
   margin-top: 1%;
@@ -23,16 +26,17 @@ select {
 }
 .limited {
   margin-top: 4%;
+  font-size: 0.9rem;
   font-family: RobotoMedium;
 }
 .button-txt {
   letter-spacing: 1px;
   font-family: RobotoMedium;
+  font-size: 0.8rem;
 }
 .one {
-  flex: 1.4;
+  flex: 1.8;
   .subOne {
-
     .item-number {
       margin-top: 3%;
       margin-bottom: 3.2%;
@@ -47,33 +51,31 @@ select {
 }
 .subTwo {
   display: flex;
+  height: 16px;
   padding: 0;
   margin: 0;
-  .star {
-    width: 12px;
-    height: 12px;
-  }
-  .heart {
+  font-size: 0.9rem;
+  .icon {
     width: 12px;
     height: 12px;
   }
   .flowingOne {
-    flex: 1;
     display: flex;
-    width: 100%;
-    flex-direction: row;
     align-items: center;
     justify-content: space-around;
-    font-size: 1rem;
-    font-weight: 200;
-    margin-right: 1%;
+    min-width: 60%;
+  }
+  #divider {
+    height: 100%;
+    width: 1.5px;
+    background-color: black;
+    margin: 0 3%;
   }
   .flowingTwo {
     display: flex;
-    flex-direction: row;
+    flex: 1;
     justify-content: space-around;
     align-items: center;
-    width: 38%;
   }
   .fontOne {
     margin-left: 2%;
@@ -85,12 +87,13 @@ select {
   padding-left: 3%;
 }
 .three {
-  flex: 1.4;
+  flex: 1.6;
   display: flex;
   justify-content: space-between;
   .button {
-    width: 20vh;
-    height: 28%;
+    font-family: RobotoMedium;
+    width: ${props => (96.7 / 1000) * ((1800 / props.window.windowWidth) * props.window.windowWidth)}px;
+    height: ${props => (96.7 / 1000) * ((420 / props.window.windowWidth) * props.window.windowWidth)}px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -106,7 +109,7 @@ select {
   #buttonOne {
     color: white;
     margin-bottom: 6%;
-    background-color: #ff0000;
+    background-color: #B3210D;
   }
   .icon {
     height: 24px;

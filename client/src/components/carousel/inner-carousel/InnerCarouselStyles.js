@@ -1,10 +1,6 @@
 import styled from 'styled-components';
 
 const InnerCarouselStyles = styled.div`
-display: flex;
-flex-direction: column;
-justify-content: center;
-
 .mainWrapper {
   display: flex;
   justify-content: center;
@@ -24,9 +20,38 @@ justify-content: center;
   height: 0.2px;
 }
 
-.image {
+.photoContainer {
+  display: flex;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+  scrollbar-width: none;
+  scroll-behavior: smooth;
   height: 80%;
   width: 55%;
+  transition: transform 0.45s ease 0s;
+}
+
+.photoContainer::-webkit-scrollbar {
+  display: none;
+}
+
+.image {
+  height: 100%;
+  min-height: 100%;
+  width: 100%;
+  min-width: 100%;
+  transform: translateX(${props => props.x}px);
+  transition: transform 0.45s ease 0s;
+}
+.transform {
+  transform: translateX(-660px);
+  transition: transform 0.45s ease 0s;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 .one {
   height: 100%;

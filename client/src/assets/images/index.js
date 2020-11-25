@@ -1,5 +1,5 @@
-import rightArrow from './rightArrow.png';
-import leftArrow from './leftArrow.png';
+const rightArrow = 'https://grubini-images.s3.amazonaws.com/icons/rightArrow.png';
+const leftArrow = 'https://grubini-images.s3.amazonaws.com/icons/leftArrow.png';
 import star from './star.png';
 import heart from './heart.png';
 import empty from './emptyheart.png';

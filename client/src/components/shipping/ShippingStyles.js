@@ -1,15 +1,21 @@
 import styled from 'styled-components';
 
 const ShippingStyles = styled.div`
+background-color: indigo;
 display: flex;
 padding 1% 2%;
 flex-direction: column;
 background-color: #ECECEC;
+font-size: 0.8rem;
+letter-spacing: 0.5px;
 a {
   color: #1D7CF2;
   margin-left: 2%;
   font-family: RobotoRegular;
   text-decoration: none;
+}
+span {
+  font-family: RobotoBlack;
 }
 .radio {
   height: 1.4em;
@@ -43,8 +49,8 @@ a {
   background-color: #D4D4D4;
 }
 .icons {
-  height: 32px;
-  eight: 32px
+  height: 28px;
+  eight: 28px
 }
 `;
 

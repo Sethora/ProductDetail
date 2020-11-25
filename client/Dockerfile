@@ -1,15 +1,12 @@
-FROM node:12
 
-# Create app directory
-WORKDIR /usr/src/app
+FROM node:14-slim
 
-#install app dependencies
-COPY package*.json ./
+WORKDIR /app
 
-RUN npm install --silent
+COPY ./package.json /app
 
-#bundle app source
-COPY . .
+RUN npm install
 
-EXPOSE 3002
-CMD ["npm", "start"]
+COPY . /app
+
+CMD [ "npm", "build" ]

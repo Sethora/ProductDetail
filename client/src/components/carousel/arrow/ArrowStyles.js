@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
-const RightArrowStyles = styled.div`
+const ArrowStyles = styled.div`
 display: flex;
-cursor: pointer;
-justify-content: center;
-align-items: center;
-height: 100%;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 .icons {
   cursor: pointer;
   height: ${props => props.height}px;
@@ -17,4 +17,4 @@ height: 100%;
 }
 `;
 
-export default RightArrowStyles;
+export default ArrowStyles;
