@@ -38,7 +38,7 @@ jobs:
       matrix:
         python-version: [3.8]
         node-version: ['12.x']
-        appname: ['sethora']
+        appname: ['aws-codedeploy']
         deploy-group: ['staging']
         s3-bucket: ['sethora-aws-code-pipeline']
         s3-filename: ['staging-aws-codedeploy-${{ github.sha }}']
@@ -76,12 +76,12 @@ jobs:
       # Deploy push to AWS S3
       - name: AWS Deploy push
         run: |
-          aws deploy push \
+          aws deploy push \git
           --application-name ${{ matrix.appname }} \
           --description "This is a revision for the ${{ matrix.appname }}-${{ github.sha }}" \
           --ignore-hidden-files \
           --s3-location s3://${{ matrix.s3-bucket }}/${{ matrix.s3-filename }}.zip \
-          --source ./client
+          --source .
       # Create deployment to CodeDeploy
       - name: AWS Create Deployment
         run: |
