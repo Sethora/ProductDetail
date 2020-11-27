@@ -1,4 +1,4 @@
 
 #!/bin/bash
-cd ~/aws-codedeploy
+cd ~/client
 pm2 startOrReload ecosystem.config.js
