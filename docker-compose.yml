@@ -1,0 +1,44 @@
+version: "3"
+
+services:
+  react-app:
+    image: react-app
+    stdin_open: true
+    ports:
+      - "3006:3006"
+    networks:
+      - mern-app
+    depends_on:
+      - api-server
+    external_links:
+      -  api-server
+    links:
+      -  api-server
+  api-server:
+    image: api-server
+    ports:
+      - "3001:3001"
+    networks:
+      - mern-app
+    depends_on:
+      - mongo
+    external_links:
+      - mongo
+    links:
+      - mongo
+  mongo:
+    image: bitnami/mongodb:4.2.11
+    ports:
+      - "27017:27017"
+    networks:
+      - mern-app
+    volumes:
+      - mongo-data:/data/db
+networks:
+  mern-app:
+    driver: bridge
+  mongo-data:
+    driver: local
+volumes:
+  mongo-data:
+    driver: local
