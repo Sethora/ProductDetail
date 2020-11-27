@@ -39,7 +39,7 @@ jobs:
         python-version: [3.8]
         node-version: ['12.x']
         appname: ['aws-codedeploy']
-        deploy-group: ['staging']git
+        deploy-group: ['staging']
         s3-bucket: ['sethora-aws-code-pipeline']
         s3-filename: ['staging-aws-codedeploy-${{ github.sha }}']
 
