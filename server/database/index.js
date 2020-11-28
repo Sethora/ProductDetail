@@ -42,7 +42,6 @@ const saveStore = (store) => {
 };
 
 const getStore = (code) => {
-  console.log('hey the code is ', code)
   return Promise.resolve(StoreModel.findOne({ code }, { _id: 0, __v: 0 }))
     .then(result => result)
     .catch(error => error);

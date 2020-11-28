@@ -103,13 +103,8 @@ app.post('/api/product/manager/create', upload, (req, res, next) => {
 });
 
 app.get('/api/product/get', (req, res, next) => {
-  let product;
   getProduct()
-    .then(product => {
-      console.log(product)
-      product = product;
-      return Promise.all([getStore(product.store_code), getBrand(product.brand_code), product]);
-    })
+    .then(product => Promise.all([getStore(product.store_code), getBrand(product.brand_code), product]))
     .then(result => {
       const data = {
         store: result[0],
