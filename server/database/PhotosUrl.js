@@ -1,3 +1,5 @@
+const _ = require('lodash');
+
 const photos = [
   'https://grubini-images.s3.amazonaws.com/pic1.jpeg',
   'https://grubini-images.s3.amazonaws.com/pic2.jpeg',
@@ -29,6 +31,10 @@ const photos = [
 
 const random = () => Math.floor(Math.random() * 25) + 1;
 const getFive = () => [1, 2, 3, 4, 5].map(el => photos[random() - 1]);
-
+const getRange = (lowerBound, upperBound) => {
+  const indexes = _.range(lowerBound, upperBound);
+  return indexes.map(el => photos[el % photos.length]);
+}
 
 exports.getFive = getFive;
+exports.getRange = getRange;

@@ -5,7 +5,7 @@ require('dotenv').config({ path: path.resolve(__dirname, '../.env') });
 
 
 const getInstance = () => {
-  mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true })
+  mongoose.connect('mongodb://localhost/sephora', { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true })
     .then(result => console.log('connected '))
     .catch(err => console.log('connection error ', err));
 };
