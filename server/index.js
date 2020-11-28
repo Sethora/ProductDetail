@@ -25,7 +25,27 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, '../public')));
 getInstance();
 
+app.get('*', (req, res, next) => {
+  res.sendFile(path.join(__dirname, '../public/index.html'));
+});
 
+app.post('/api/product', (req, res, next) => {
+  const id = (req.body.id === undefined) ? 2 : req.body.id;
+  getProduct(id)
+    .then(product => Promise.all([getStore(product.store_code), getBrand(product.brand_code), product]))
+    .then(result => {
+      const data = {
+        store: result[0],
+        brand: result[1],
+        product: result[2]
+      };
+      res.status(200).end(JSON.stringify(data));
+    })
+    .catch(error => {
+      console.log(error);
+      res.status(500).send();
+    });
+});
 app.post('/api/store/create', (req, res, next) => {
   const { store } = req.body;
   saveStore(store)
@@ -41,7 +61,6 @@ app.post('/api/store/create', (req, res, next) => {
       res.status(500).send();
     });
 });
-
 app.post('/api/brand/create', (req, res, next) => {
   const { brand } = req.body;
   saveBrand(brand)
@@ -57,7 +76,6 @@ app.post('/api/brand/create', (req, res, next) => {
       res.status(500).send();
     })
 });
-
 app.post('/api/product/create', (req, res, next) => {
   const { product } = req.body;
   saveProduct(product)
@@ -73,7 +91,6 @@ app.post('/api/product/create', (req, res, next) => {
       res.status(500).send();
     })
 });
-
 app.post('/api/product/manager/create', upload, (req, res, next) => {
   const files = req.files;
   const product = JSON.parse(req.body.product);
@@ -102,22 +119,6 @@ app.post('/api/product/manager/create', upload, (req, res, next) => {
     });
 });
 
-app.get('/api/product/get', (req, res, next) => {
-  getProduct()
-    .then(product => Promise.all([getStore(product.store_code), getBrand(product.brand_code), product]))
-    .then(result => {
-      const data = {
-        store: result[0],
-        brand: result[1],
-        product: result[2]
-      };
-      res.status(200).end(JSON.stringify(data));
-    })
-    .catch(error => {
-      console.log(error);
-      res.status(500).send();
-    });
-});
 
 if (process.env.NODE_ENV !== 'test') {
   app.listen(port, (req, res, next) => {

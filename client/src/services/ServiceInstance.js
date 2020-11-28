@@ -4,7 +4,7 @@ export default class ServiceInstance {
   static request({ url, params = {}, method = 'POST' }) {
     return axios.request({
       method,
-      url: `${process.env.BASE_URL}${url}`,
+      url: `/api${url}`,
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
