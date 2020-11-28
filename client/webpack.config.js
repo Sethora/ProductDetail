@@ -11,6 +11,7 @@ module.exports = {
   entry: ['@babel/polyfill', SRC_DIR],
   output: {
     path: PUBLIC_DIR,
+    publicPath: '/',
     filename: 'bundle.js'
   },
   module: {

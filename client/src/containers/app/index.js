@@ -22,6 +22,7 @@ class App extends Component {
   }
 
   componentDidMount() {
+    console.log(this.props)
     const id = this.props.match.params.id || 2;
     getProductService(id)
       .then(result => {
@@ -59,7 +60,7 @@ class App extends Component {
                 <Basket
                   id="basket"
                   window={window}
-                  brand_name={this.state.brand.name}
+                  brand_name={this.state.brand === null ? '' : this.state.brand.name}
                   product={this.state.product}
                 />
                 <Shipping

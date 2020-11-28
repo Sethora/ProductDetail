@@ -10,6 +10,6 @@ function useQuery() {
 
 ReactDOM.render(<Router>
   <WindowDimensionProvider>
-    <Route path={['/:id', '/']} component={App} />
+    <Route path={['/*/:id', '/:id', '/*']} component={App} />
   </WindowDimensionProvider>
 </Router>, document.getElementById("root"));
