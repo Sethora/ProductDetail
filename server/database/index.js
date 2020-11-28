@@ -26,6 +26,12 @@ const getProducts = () => {
     .catch(error => error);
 };
 
+const getProduct = (id = 2) => {
+  return Promise.resolve(ProductModel.findOne({ respresented_id: id }, { _id: 0, __v: 0 }))
+    .then(result => result)
+    .catch(error => error);
+};
+
 const saveStore = (store) => {
   return Promise.resolve(StoreModel.create(store))
     .then(result => result)
@@ -36,6 +42,7 @@ const saveStore = (store) => {
 };
 
 const getStore = (code) => {
+  console.log('hey the code is ', code)
   return Promise.resolve(StoreModel.findOne({ code }, { _id: 0, __v: 0 }))
     .then(result => result)
     .catch(error => error);
@@ -58,6 +65,7 @@ module.exports = {
   shutDownInstance,
   saveProduct,
   getProducts,
+  getProduct,
   saveStore,
   getStore,
   saveBrand,

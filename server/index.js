@@ -8,6 +8,7 @@ const {
   getInstance,
   saveProduct,
   getProducts,
+  getProduct,
   saveStore,
   getStore,
   saveBrand,
@@ -103,12 +104,9 @@ app.post('/api/product/manager/create', upload, (req, res, next) => {
 
 app.get('/api/product/get', (req, res, next) => {
   let product;
-  getProducts()
-    .then(products => {
-      const random = Math.floor(Math.random() * 100);
-      return products[random];
-    })
+  getProduct()
     .then(product => {
+      console.log(product)
       product = product;
       return Promise.all([getStore(product.store_code), getBrand(product.brand_code), product]);
     })
