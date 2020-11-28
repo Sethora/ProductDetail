@@ -22,7 +22,8 @@ class App extends Component {
   }
 
   componentDidMount() {
-    getProductService()
+    const id = this.props.match.params.id || 2;
+    getProductService(id)
       .then(result => {
         if (result.product) {
           const { store, brand, product } = result;

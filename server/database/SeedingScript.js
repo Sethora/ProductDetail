@@ -28,8 +28,9 @@ const getRandomBrand = () => {
   return brand;
 };
 
-const getRandomProduct = ({ store_code, brand_code }) => {
+const getRandomProduct = ({ respresented_id, store_code, brand_code, index }) => {
   const product = {
+    respresented_id,
     code: faker.vehicle.vin(),
     store_code,
     brand_code,
@@ -42,7 +43,7 @@ const getRandomProduct = ({ store_code, brand_code }) => {
     instructions: faker.lorem.sentences(),
     ingredients: faker.lorem.words(),
     price: Number.parseFloat(faker.commerce.price()),
-    images: random.getFive()
+    images: random.getRange(respresented_id, respresented_id + 5)
   };
   return product;
 };
@@ -53,7 +54,7 @@ const insertRandom = async () => {
     const brand = getRandomBrand();
     await saveStore(store)
       .then(result => saveBrand(brand))
-      .then(result => saveProduct(getRandomProduct({ store_code: store.code, brand_code: brand.code })))
+      .then(result => saveProduct(getRandomProduct({ respresented_id: el, store_code: store.code, brand_code: brand.code })))
       .catch(e => console.log(e));
   }
   shutDownInstance()

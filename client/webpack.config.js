@@ -1,17 +1,17 @@
-const path = require('path');
+const resolve = require('path').resolve;
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const Dotenv = require('dotenv-webpack');
 // const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const SRC_DIR = path.join(__dirname, './src/index.js');
-const PUBLIC_DIR = path.join(__dirname, '../public');
+const SRC_DIR = resolve(__dirname, './src/index.js');
+const PUBLIC_DIR = resolve(__dirname, '..', './public');
 
 module.exports = {
   entry: ['@babel/polyfill', SRC_DIR],
   output: {
     path: PUBLIC_DIR,
-    filename: 'bundle.js',
+    filename: 'bundle.js'
   },
   module: {
     rules: [
@@ -49,7 +49,7 @@ module.exports = {
       favicon: false,
       showErrors: true,
       cache: true,
-      template: path.resolve(__dirname, './src/index.html'),
+      template: resolve(__dirname, 'src', 'index.html'),
       filename: 'index.html'
     }),
     // new CleanWebpackPlugin(),

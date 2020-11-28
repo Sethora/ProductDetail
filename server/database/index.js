@@ -5,7 +5,7 @@ require('dotenv').config({ path: path.resolve(__dirname, '../.env') });
 
 
 const getInstance = () => {
-  mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true })
+  mongoose.connect('mongodb://localhost/sephora', { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true })
     .then(result => console.log('connected '))
     .catch(err => console.log('connection error ', err));
 };
@@ -22,6 +22,12 @@ const saveProduct = (product) => {
 
 const getProducts = () => {
   return Promise.resolve(ProductModel.find({}, { _id: 0, __v: 0 }))
+    .then(result => result)
+    .catch(error => error);
+};
+
+const getProduct = (id = 2) => {
+  return Promise.resolve(ProductModel.findOne({ respresented_id: id }, { _id: 0, __v: 0 }))
     .then(result => result)
     .catch(error => error);
 };
@@ -58,6 +64,7 @@ module.exports = {
   shutDownInstance,
   saveProduct,
   getProducts,
+  getProduct,
   saveStore,
   getStore,
   saveBrand,
