@@ -10,9 +10,9 @@ exports.createStore = (req, res, next) => {
   saveStore(store)
     .then(result => {
       if (result.code !== undefined) {
-        res.status(200).send({ "message": "successfully inserted" })
+        res.status(200).send({ "message": "successfully inserted" });
       } else {
-        res.status(404).send({ "mesage": "Oops there was an error, please try again" })
+        res.status(404).send({ "mesage": "Oops there was an error, please try again" });
       }
     })
     .catch(error => {
@@ -25,9 +25,9 @@ exports.createBrand = (req, res, next) => {
   saveBrand(brand)
     .then(result => {
       if (result.code !== undefined) {
-        res.status(200).send({ "message": "successfully inserted" })
+        res.status(200).send({ "message": "successfully inserted" });
       } else {
-        res.status(404).send({ "message": "Oops there was an error, please try again" })
+        res.status(404).send({ "message": "Oops there was an error, please try again" });
       }
     })
     .catch(error => {
@@ -40,9 +40,9 @@ exports.createProduct = (req, res, next) => {
   saveProduct(product)
     .then(result => {
       if (result.code !== undefined) {
-        res.status(200).send({ "message": "successfully inserted" })
+        res.status(200).send({ "message": "successfully inserted" });
       } else {
-        res.status(404).send({ "message": "Oops there was an error, please try again" })
+        res.status(404).send({ "message": "Oops there was an error, please try again" });
       }
     })
     .catch(error => {
@@ -67,10 +67,10 @@ exports.createProductWithImages = (req, res, next) => {
   saveProduct(obj)
     .then(result => {
       if (result.code !== undefined) {
-        res.status(200).send({ "message": "successfully inserted" })
+        res.status(200).send({ "message": "successfully inserted" });
       } else {
         console.log(result);
-        res.status(404).send({ "message": "Oops there was an error, please try again" })
+        res.status(404).send({ "message": "Oops there was an error, please try again" });
       }
     }).catch(error => {
       console.log(error);

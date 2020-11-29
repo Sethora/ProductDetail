@@ -4,8 +4,7 @@ const { getProduct, getStore, getBrand } = require('../database');
 exports.getIndex = (req, res, next) => res.sendFile(path.join(__dirname, '../../public/index.html'));
 
 exports.getProduct = (req, res, next) => {
-  console.log('heyerye')
-  const id = (req.body.id === undefined) ? 2 : req.body.id;
+  const id = (req.params.id === undefined) ? 2 : req.params.id;
   getProduct(id)
     .then(product => Promise.all([getStore(product.store_code), getBrand(product.brand_code), product]))
     .then(result => {

@@ -11,6 +11,6 @@ router.post('/product/create', creationContoller.createProduct);
 router.post('/product/manager/create', upload, creationContoller.createProductWithImages);
 
 
-router.post('/product', fetchController.getProduct);
+router.get('/product/:id', fetchController.getProduct);
 
 module.exports = router;
