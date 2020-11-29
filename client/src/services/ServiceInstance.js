@@ -2,6 +2,8 @@ import axios from 'axios';
 
 export default class ServiceInstance {
   static request({ url, params = {}, method = 'POST' }) {
+    console.log('the url ', url)
+    console.log('the params ', params)
     return axios.request({
       method,
       url: `/api${url}`,

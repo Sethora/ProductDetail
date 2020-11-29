@@ -21,6 +21,8 @@ app.use('/api', routes.apiRoutes);
 app.use('/', routes.webRoutes);
 
 
+
+
 if (process.env.NODE_ENV !== 'test') {
   app.listen(port, (req, res, next) => {
     console.log('I\'m up');
